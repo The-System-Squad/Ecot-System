@@ -1,0 +1,7 @@
+{
+  "name": "ECOT-Food-Corner",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

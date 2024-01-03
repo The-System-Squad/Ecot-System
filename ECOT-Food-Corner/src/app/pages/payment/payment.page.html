@@ -1,0 +1,18 @@
+<ion-header >
+  <ion-toolbar color = "danger">
+    <ion-buttons slots = "start" class="menu_btn" >
+      <ion-back-button color="light" defaultHref="order">
+        </ion-back-button>
+        <ion-title>Payment History</ion-title>
+        </ion-buttons>
+        
+
+        <ion-icon name = "notifications" slot="end" (click)="notificationModal($event)"></ion-icon>
+        <ion-badge id= "notifications-badge-msg" color="danger">2</ion-badge>
+
+        <ion-icon name="cart" slot="end"> </ion-icon>
+        <ion-badge id = "notifications-badge" color="danger">5</ion-badge>
+        
+        <img slot = "end" src="../../../assets/PSX_20220717_175501.jpg" (click)="presentModal($event)" />
+  </ion-toolbar>
+</ion-header>
