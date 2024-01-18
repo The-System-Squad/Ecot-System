@@ -1,59 +1,63 @@
 <ion-content>
   <ion-header>
-    <ion-toolbar>
+    <ion-toolbar color = "danger">
       <ion-buttons slot="start">
-        <ion-back-button></ion-back-button>
+        <ion-back-button color = "light" defaultHref = "login"></ion-back-button>
       </ion-buttons>
       <ion-title>Caterer Registration</ion-title>
     </ion-toolbar>
   </ion-header>
   
-  <ion-content>
-    <form>
-      <ion-item lines="full">
-        <ion-label position="floating">First name</ion-label>
-        <ion-input type="text" required></ion-input>
-      </ion-item>
-  
-      <ion-item lines="full">
-        <ion-label position="floating">Last name</ion-label>
-        <ion-input type="text" required></ion-input>
-      </ion-item>
+  <hr />
 
-      <ion-item lines="full">
-        <ion-label position="floating">Business Name</ion-label>
-        <ion-input type="text" required></ion-input>
-      </ion-item>
-  
-      <ion-item lines="full">
-        <ion-label position="floating">Date of Birth</ion-label>
-        <ion-input type="Date" required></ion-input>
-      </ion-item>
-  
-      <ion-item lines="full">
-        <ion-label position="floating">Phone number</ion-label>
-        <ion-input type="tel" required></ion-input>
-      </ion-item>
-  
-      <ion-item lines="full">
-        <ion-label position="floating">Residential Address</ion-label>
-        <ion-input type="text" required></ion-input>
-      </ion-item>
-  
-      <ion-item lines="full">
-        <ion-label position="floating">Email</ion-label>
-        <ion-input type="text" required></ion-input>
-      </ion-item>
-  
-      <ion-item lines="full">
-        <ion-label position="floating">Password</ion-label>
-        <ion-input type="password" required></ion-input>
-      </ion-item>
-  
+  <ion-content>
+    <div class = "container-fluid mb-5">
+      <form #userForm = "ngForm">
+        
+        <div class = "form-group">
+          <ion-label>First name</ion-label>
+          <ion-input type="text" class = "form-control" name = "firstName"  > </ion-input>
+        </div>
+    
+        <div class = "form-group">
+          <ion-label>Last name</ion-label>
+          <ion-input type="text" class = "form-control" name = "lastName" > </ion-input>
+        </div>
+    
+        <div class = "form-group">
+          <ion-label>Business Name</ion-label>
+          <ion-input type="text" class = "form-control" name = "businessName" > </ion-input>
+        </div>
+
+        <div class = "form-group">
+          <ion-label>Date of Birth</ion-label>
+          <ion-input type="date" class = "form-control" name = "dateofBith" > </ion-input>
+        </div>
+    
+        <div class = "form-group">
+          <ion-label>Residential Address </ion-label>
+          <ion-input type="text" class = "form-control" name = "residentialAddress" > </ion-input>
+        </div>
+    
+        <div class = "form-group">
+          <ion-label>Cellphone Number</ion-label>
+          <ion-input type="number" class = "form-control" name = "telNumber" > </ion-input>
+        </div>
+    
+        <div class = "form-group">
+          <ion-label>Email</ion-label>
+          <ion-input type="text" class = "form-control" name = "email" > </ion-input>
+        </div>
+    
+        <div class = "form-group">
+          <ion-label>Password</ion-label>
+          <ion-input type="password" class = "form-control" name = "password" > </ion-input>
+        </div>
       <ion-row>
         <ion-col>
           <ion-button type="submit" color="danger" expand="block">Sign Up</ion-button>
         </ion-col>
       </ion-row>
     </form>
+    </div>
   </ion-content>

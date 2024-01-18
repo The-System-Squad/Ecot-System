@@ -1,0 +1,135 @@
+ion-content{
+    --background:#fff;
+
+    .img{
+        background: black;
+        overflow: hidden;
+        height: 250px;
+        width: 100%;
+        position: relative;
+
+        .top{
+            margin-top:40px;
+            margin-left: 20px;
+            margin-right: 20px;
+            position: absolute;
+            width: 100%;
+            z-index: 999;
+
+            .back_div{
+                font-size: 30px;
+                position: relative;
+                #end{
+                    float: right;
+                    margin-right: 40px;
+
+                }
+
+            }
+
+
+
+
+        }
+        .bottom{
+            bottom: 10px;
+            left: 10px;
+            position: absolute;
+            right: 10px;
+            z-index: 999;
+            height: 80px;
+            display: grid;
+            grid-template-columns: 25% 55% 20% ;
+            grid-template-rows: 80px auto 80px;
+            color:#fff;
+            .first{
+                justify-self: start;
+                img{
+                    width: 70px;
+                    height: 70px;
+                    border-radius: 50px;
+                    
+                }
+            }
+            .second{
+                justify-self: start;
+                align-self: start;
+                h4{
+                    margin-top: -3px;
+                }
+                p{
+                    margin-top: -10px;
+
+                }
+
+            }
+
+        }
+        #myimg{
+            width: 100%;
+            object-fit: cover;
+            opacity: 0.3;
+        }
+    }
+    .menu{
+        background-color: #f8f8f8;
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding-top: 15px;
+        border-bottom: 1px solid #ccc;
+        .menudiv{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            ion-icon{
+                font-size:28px;
+                color: red;
+                vertical-align: middle;
+
+            }
+
+        }
+    }
+
+    .ch-menu{
+        margin-top: -20px;
+        background-color: #f8f8f8;
+        width: 100%;
+        height: 200px;
+        p{
+            margin-left: 20px;
+            padding-top: 20px;
+            color: red;
+            font-size: 20px;
+        }
+        .wrapper{
+            max-width: 100%;
+            border: none;
+            display: flex;
+            overflow-x: auto;
+            .item{
+                min-width: 100px;
+                height: auto;
+                position: relative;
+
+
+                #img{
+                    width: 80px;
+                    height: 80px;
+                    border-radius: 50%;
+                    display: block;
+                    margin-right: auto;
+                    margin-left: auto;
+                    border: 3px solid #fff;
+                    outline: 1px solid red;
+                }
+            }
+
+        }
+    }
+    
+}

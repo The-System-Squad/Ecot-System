@@ -47,6 +47,24 @@ const routes: Routes = [
     path: 'payment',
     loadChildren: () => import('./pages/payment/payment.module').then( m => m.PaymentPageModule)
   },
+
+  {
+    path: 'person',
+    loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
+  },
+  {
+    path: 'catererlist',
+    loadChildren: () => import('./caterer/catererlist/catererlist.module').then( m => m.CatererlistPageModule)
+  },
+  {
+    path: 'caterer-details',
+    loadChildren: () => import('./caterer/caterer-details/caterer-details.module').then( m => m.CatererDetailsPageModule)
+  },
+  {
+    path: 'catererdetails',
+    loadChildren: () => import('./caterer/catererdetails/catererdetails.module').then( m => m.CatererdetailsPageModule)
+  },
+  
   
 ];
 

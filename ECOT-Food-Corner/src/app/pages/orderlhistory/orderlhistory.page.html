@@ -7,13 +7,15 @@
         </ion-buttons>
         
 
-        <ion-icon name = "notifications" slot="end" ></ion-icon>
+        <ion-icon name = "notifications" slot="end"  ></ion-icon>
         <ion-badge id= "notifications-badge-msg" color="danger">2</ion-badge>
-
+        
         <ion-icon name="cart" slot="end"> </ion-icon>
         <ion-badge id = "notifications-badge" color="danger">5</ion-badge>
-        <img slot = "end" src="../../../assets/PSX_20220717_175501.jpg" />
-        
+
+        <img slot = "end" href = "profile" src="../../../assets/PSX_20220717_175501.jpg" />
+      
+
   </ion-toolbar>
 </ion-header>
 
@@ -71,5 +73,32 @@
 
   </div>
  </div>
-
 </ion-content>
+ <ion-footer>
+  <ion-toolbar color = "danger">
+ <ion-tabs>
+  <ion-tab-bar slot = "bottom">
+    <ion-tab-button tab = "home">
+      <ion-icon name = "menu"></ion-icon>
+      Menu
+    </ion-tab-button>
+
+    <ion-tab-button tab = "search">
+      <ion-icon name = "search"></ion-icon>
+      Search
+    </ion-tab-button>
+
+    <ion-tab-button tab = "cart">
+      <ion-icon name = "cart"></ion-icon>
+      Cart
+    </ion-tab-button>
+
+    <ion-tab-button tab = "profile">
+      <ion-icon name = "person"></ion-icon>
+      Profile
+    </ion-tab-button>
+
+  </ion-tab-bar>
+ </ion-tabs>
+</ion-toolbar>
+ </ion-footer>

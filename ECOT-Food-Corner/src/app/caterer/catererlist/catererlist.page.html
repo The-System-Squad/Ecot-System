@@ -1,0 +1,107 @@
+<ion-header>
+<ion-toolbar color="danger">
+  <ion-buttons slot = "start" class="menu_btn" >
+    <ion-menu-button color="light"></ion-menu-button>
+  </ion-buttons>
+<ion-title>
+  Caterer list
+</ion-title>
+<ion-icon name="notifications" slot="end" (click)="notificationModal($event)"></ion-icon>
+<ion-badge id="notifications-badge-msg" color="danger">2</ion-badge>
+
+<ion-icon name="cart" slot="end"></ion-icon>
+<ion-badge id="notifications-badge" color="danger">5</ion-badge>
+
+<img slot="end" src="../../../assets/PSX_20220717_175501.jpg" (click)="presentModal($event)"/> 
+</ion-toolbar>
+
+<ion-toolbar color = "danger">
+  <ion-searchbar placeholder="Search Caterer or Dish"></ion-searchbar>
+</ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="caterer-box">
+    <div class="upper-box">
+    <div class="img">
+      <img src="../../../assets/caterer/Screenshot_20240117-111736_Instagram.jpg"/>
+    </div>
+    <div class="name-text">
+      <h5>Nonsikelelo Nxumalo</h5>
+      <p>Sandla, Mbabane</p>
+      <p><ion-icon name="star"></ion-icon> <span>4.8</span> (208 Reviews)</p>
+      <p>08:30 AM - 09:00 PM</p>
+    </div>
+      <div class="hour-text">
+        <p class="ion-text-end">0.8 km<ion-icon color="red" 
+          name="ellipsis-vertical-outline" (click)="presentPopover($event)"></ion-icon></p>
+         
+      </div>
+    </div>
+  <div class="lower-box">
+    <div class="wrapper">
+      <div class= "item" *ngFor = "let item of dish">
+        <img id="img" src="../../../../assets/food/{{item.image}}"/>
+      
+      </div>
+    </div>
+  </div>
+  
+    </div>
+
+    <div class="caterer-box">
+      <div class="upper-box">
+      <div class="img">
+        <img src="../../../assets/caterer/002.jpg"/>
+      </div>
+      <div class="name-text">
+        <h5>Nosipho Dlamini</h5>
+        <p>Sandla, Mbabane</p>
+        <p><ion-icon name="star"></ion-icon> <span>4.5</span> (167 Reviews)</p>
+        <p>08:30 AM - 09:00 PM</p>
+      </div>
+        <div class="hour-text">
+          <p class="ion-text-end">0.8 km<ion-icon color="red" 
+            name="ellipsis-vertical-outline" (click)="presentPopover($event)"></ion-icon></p>
+           
+        </div>
+      </div>
+    <div class="lower-box">
+      <div class="wrapper">
+        <div class= "item" *ngFor = "let item of dish1">
+          <img id="img" src="../../../../assets/food/{{item.image}}"/>
+        
+        </div>
+      </div>
+    </div>
+    
+      </div>
+
+      <div class="caterer-box">
+        <div class="upper-box">
+        <div class="img">
+          <img src="../../../assets/caterer/003.jpg"/>
+        </div>
+        <div class="name-text">
+          <h5>Mpendulo Seyama</h5>
+          <p>Prisons, Mbabane</p>
+          <p><ion-icon name="star"></ion-icon> <span>2.8</span> (106 Reviews)</p>
+          <p>08:30 AM - 09:00 PM</p>
+        </div>
+          <div class="hour-text">
+            <p class="ion-text-end">1.3 km<ion-icon color="red" 
+              name="ellipsis-vertical-outline" (click)="presentPopover($event)"></ion-icon></p>
+             
+          </div>
+        </div>
+      <div class="lower-box">
+        <div class="wrapper">
+          <div class= "item" *ngFor = "let item of dish2">
+            <img id="img" src="../../../../assets/food/{{item.image}}"/>
+          
+          </div>
+        </div>
+      </div>
+      
+        </div>
+  </ion-content>
