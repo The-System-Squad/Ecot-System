@@ -152,14 +152,14 @@
     </div>
 
    <div class="services" *ngIf="segId=='services'">
-    <div class="lower-box">
+    <div class="lower-box">  
       <div class="wrapper">
-        <div class="item" *ngFor="let item of data">
+        <div class="item" *ngFor="let item of dish">
           <img id="img" src="../../../assets/food/{{item.image}}"/>
         </div>
       </div>
 
-      <div *nFor="let order of orders" class="innerService">
+      <div *ngFor="let order of orders" class="innerService">
         <p id="date">{{order.date}}</p>
         <div class="upperBox1" *ngFor="let Singleorder of order.order">
           <div class="image">
@@ -169,6 +169,7 @@
           <div class = "title">
             <h3> {{Singleorder.title}} </h3>
           </div>
+           
           <div class="menu">
             <h3>
               <ion-icon name="ellipsis-vertical-outline" (click)="presentPopover($event)">
@@ -180,8 +181,9 @@
           <div class="orderId">
 
           </div>
+
           <div class="amount">
-            <h3>${{Singleorder.amount}}  </h3>
+            <h3>E{{Singleorder.amount}}  </h3>
 
           </div>
 
@@ -197,6 +199,7 @@
             <ion-button class="btn" type="submit" (click)="presentPopover($event)">Add
             </ion-button>
           </div>
+
         </div>
       </div>
 
@@ -204,6 +207,8 @@
     </div>
    </div>
 
+   <div class="reviews" *ngIf="segId=='reviews'">
+   </div>
 
   </div>
 

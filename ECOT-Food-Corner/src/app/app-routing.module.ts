@@ -36,10 +36,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/orderlhistory/orderlhistory.module').then( m => m.OrderlhistoryPageModule)
   },
   {
-    path: 'order',
-    loadChildren: () => import('./pages/popup/order/order.module').then( m => m.OrderPageModule)
-  },
-  {
     path: 'ordermenu',
     loadChildren: () => import('./pages/popup/ordermenu/ordermenu.module').then( m => m.OrdermenuPageModule)
   },
@@ -63,6 +59,10 @@ const routes: Routes = [
   {
     path: 'catererdetails',
     loadChildren: () => import('./caterer/catererdetails/catererdetails.module').then( m => m.CatererdetailsPageModule)
+  },
+  {
+    path: 'order',
+    loadChildren: () => import('./order/order.module').then( m => m.OrderPageModule)
   },
   
   

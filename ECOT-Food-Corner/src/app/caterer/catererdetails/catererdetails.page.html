@@ -65,9 +65,10 @@
   <div class="ch-menu">
     <p>Caterer Menu</p>
     <div class="wrapper">
-      <div class="item">
-        <img id="img" src="../../../assets/food/chips.jpg"/>
+      <div class="item" *ngFor="let item of data">
+        <img id="img" src="../../../assets/food/{{item.image}}"/>
 
+        <p>{{item.title | slice: 0:20}}</p>
       </div>
 
     </div>

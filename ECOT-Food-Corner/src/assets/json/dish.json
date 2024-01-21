@@ -1,44 +1,31 @@
 [{ 
     "id": "01",
     "image": "images (2).jpeg",
-    "title": "Chicken & pap ",
-    "amount": "35.00",
-    "qty": "1"
+    "title": "Chicken & pap "
   },
   { 
     "id": "02",
     "image": "images.jpeg",
-    "title": "Beef & pap",
-    "amount": "35.00",
-    "qty": "1"
+    "title": "Beef & pap"
   },
   { 
     "id": "03",
     "image": "Moroccan252520Beef252520Stew252520above.jpg",
-    "title": "Rice & mince",
-    "amount": "35.00",
-    "qty": "1"
+    "title": "Rice & mince"
   },
   { 
     "id": "04",
     "image": "pap-and-chicken-stew-recipe-main-photo.jpg",
-    "title": "Chichen & pap",
-    "amount": "35.00",
-    "qty": "1"
+    "title": "Chichen & pap"
   },
   { 
     "id": "05",
     "image": "vYBCXD4T530vnbze9fy6x9GjRisL81dmULtwd6kn.jpg",
-    "title": "Potato chips",
-    "amount": "35.00",
-    "qty": "1"
-    
+    "title": "Potato chips" 
   },
   { 
     "id": "06",
     "image": "002.JPG",
-    "title": "Chicken stew",
-    "amount": "35.00",
-    "qty": "1"
+    "title": "Chicken stew"
   }
 ]
