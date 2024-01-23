@@ -25,6 +25,10 @@ return this.http.get('../../assets/json/menuDish.json');
       getAllOrders(): Observable<any> {
         return this.http.get('../../assets/json/order.json');
           }
+          
+          getAllPayments(): Observable<any>{
+            return this.http.get('../../assets/json/payment.json')
+          }
 
   
 }

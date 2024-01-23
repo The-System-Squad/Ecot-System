@@ -10,10 +10,10 @@ import { CouponComponent } from '../pages/component/coupon/coupon.component';
   styleUrls: ['./order.page.scss'],
 })
 export class OrderPage implements OnInit {
-  orders: any= [];
+  orders: any = [];
   number = 1;
   total_amt = 0;
-  totalItemPrice!: string;
+  totalItemPrice: any = [];
   returnDataFromModal: any;
   constructor(private service: AppServiceService, public loadingController: LoadingController,private modalCtrl : ModalController,) { }
 

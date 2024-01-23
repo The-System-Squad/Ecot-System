@@ -16,3 +16,15 @@
         <img slot = "end" src="../../../assets/PSX_20220717_175501.jpg" (click)="presentModal($event)" />
   </ion-toolbar>
 </ion-header>
+
+<ion-content>
+  <div *ngFor="let payment of payment">
+    <p id="date">{{payment.date}}</p>
+
+    <div class="upperBox" *ngFor="let item of payment.transactions">
+      <div class="img">
+        <img src="../../../assets/food/{{item.image}}"/>
+      </div>
+    </div>
+  </div>
+</ion-content>

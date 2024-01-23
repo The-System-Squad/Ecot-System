@@ -64,6 +64,10 @@ const routes: Routes = [
     path: 'order',
     loadChildren: () => import('./order/order.module').then( m => m.OrderPageModule)
   },
+  {
+    path: 'settings',
+    loadChildren: () => import('./pages/settings/settings.module').then( m => m.SettingsPageModule)
+  },
   
   
 ];
