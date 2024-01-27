@@ -2,7 +2,10 @@
   <div class="img">
     <div class="top">
       <div class="back_div">
-        <ion-icon name="arrow-back-outline" color="light"></ion-icon>
+        <ion-buttons slots = "start" class="menu_btn" >
+          <ion-back-button color="light" defaultHref="catererlist">
+            </ion-back-button>
+        </ion-buttons>
         <ion-icon name="star-outline" color="light" id="end"></ion-icon> 
       </div>
     </div>
@@ -44,30 +47,15 @@
       call
     </p>
   </div>
-
-  <div class="menudiv">
-    <ion-icon name="map-outline">
-    </ion-icon>
-    <p>
-      directions
-    </p>
-  </div>
-
-  <div class="menudiv">
-    <ion-icon name="share-outline">
-    </ion-icon>
-    <p>
-      share
-    </p>
-  </div>
   </div>
 
   <div class="ch-menu">
     <p>Caterer Menu</p>
     <div class="wrapper">
       <div class="item" *ngFor="let item of data">
+       <a href="#services" class="btn">
         <img id="img" src="../../../assets/food/{{item.image}}"/>
-
+</a>
         <p>{{item.title | slice: 0:20}}</p>
       </div>
 
@@ -80,7 +68,7 @@
 
       </ion-segment-button>
       <ion-segment-button value="services">
-        <ion-label>services</ion-label>
+        <ion-label>available dishes</ion-label>
       </ion-segment-button>
       <ion-segment-button value="review">
         <ion-label>review</ion-label>
@@ -139,19 +127,11 @@
     <div class="address">
       <h3>Address</h3>
       <ion-label>plot 158, Sandla, Mbabane, Eswatini</ion-label>
-      <h3>Photos <span>View all</span></h3>
-
-      <div class="lower-box">
-        <div class="wrapper">
-          <div class="item" *ngFor="let item of data">
-            <img id="img" src="../../../assets/food/{{item.image}}"/>
-          </div>
-        </div>
-      </div>
+      
     </div> <ion-button expand="block" (click)="goToEvent()">call caterer</ion-button>
     </div>
 
-   <div class="services" *ngIf="segId=='services'">
+   <div class="services" *ngIf="segId=='services'" id="services">
     <div class="lower-box">  
       <div class="wrapper">
         <div class="item" *ngFor="let item of dish">
@@ -191,13 +171,12 @@
 
           </div>
 
-          <div class ="time">
-            <p>Est. Time : {{Singleorder.time}}</p>
-          </div>
 
           <div class="edit">
+            <a href="order">
             <ion-button class="btn" type="submit" (click)="presentPopover($event)">Add
             </ion-button>
+          </a>
           </div>
 
         </div>

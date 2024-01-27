@@ -1,9 +1,11 @@
 <ion-header>
-  <ion-toolbar color='danger'>
-    <ion-buttons slot="start" class="menu_btn">
-      <ion-menu-button color="light" defaultHref="home1"></ion-menu-button>
-    </ion-buttons>
-    <ion-title>Your Order</ion-title>
+  <ion-toolbar color = "secondary">
+    <ion-buttons slots = "start" class="menu_btn" >
+      <ion-back-button color="light" defaultHref="caterer-details">
+        </ion-back-button>
+        <ion-title>Orders</ion-title>
+        </ion-buttons>
+    
     <ion-icon name="notifications" slot="end" (click)="notificationModal($event)"></ion-icon>
     <ion-badge id="notifications-badge-msg" color="danger">2</ion-badge>
     <ion-icon name="cart" slot="end"></ion-icon>
@@ -69,7 +71,7 @@
       </ion-col>
  
       <ion-col size="5">
-        <p class="ion-text-right ion-padding-end" (click)="orderDetails()">Continue <ion-icon name="arrow-forward-outline"></ion-icon></p>
+        <p class="ion-text-right ion-padding-end" (click)="orderDetails()">Continue <a href="checkout"><ion-icon name="arrow-forward-outline"> </ion-icon> </a></p>
       </ion-col>
     </ion-row>
   </ion-toolbar>

@@ -14,7 +14,7 @@ export class OrderlhistoryPage implements OnInit {
     "order": [{
       "id": "01",
       "image": "001.JPG",
-      "title": "Beef Stew",
+    "title": "Beef Stew",
       "amount": "35.00",
       "transId": "58745212",
       "time": "20 Min",
@@ -22,8 +22,8 @@ export class OrderlhistoryPage implements OnInit {
     },
   {
     "id": "02",
-      "image": "002.JPG",
-      "title": "Chicken Stew",
+    "image": "images.jpeg",
+    "title": "Beef & pap",
       "amount": "32.00",
       "transId": "45784125",
       "time": "45 Min",
@@ -31,20 +31,20 @@ export class OrderlhistoryPage implements OnInit {
   },
   {
     "id": "03",
-      "image": "003.JPG",
-      "title": "Chicken dust",
+    "image": "Moroccan252520Beef252520Stew252520above.jpg",
+    "title": "Rice & mince",
       "amount": "30.00",
       "transId": "523081980",
       "time": "10 Min",
-      "status": "CONFIRMED", 
+      "status": "CANCELLED", 
   }]
 },
 {
   "date": "18 November 2023",
   "order": [{
     "id": "04",
-    "image": "003.JPG",
-    "title": "Beef Stew",
+    "image": "pap-and-chicken-stew-recipe-main-photo.jpg",
+    "title": "Chichen & pap",
     "amount": "35.00",
     "transId": "58745212",
     "time": "23 Min",
@@ -52,8 +52,8 @@ export class OrderlhistoryPage implements OnInit {
 },
 {
   "id": "05",
-    "image": "004.JPG",
-    "title": "Chicken stew",
+  "image": "vYBCXD4T530vnbze9fy6x9GjRisL81dmULtwd6kn.jpg",
+  "title": "Potato chips" ,
     "amount": "32.00",
     "transId": "45784125",
     "time": "30 Min",
@@ -61,8 +61,8 @@ export class OrderlhistoryPage implements OnInit {
 },
 {
   "id": "06",
-    "image": "005.JPG",
-    "title": "Chicken dust",
+  "image": "002.JPG",
+  "title": "Chicken stew",
     "amount": "30.00",
     "transId": "23081980",
     "time": "05 Min",

@@ -1,5 +1,5 @@
 <ion-header >
-  <ion-toolbar color = "danger">
+  <ion-toolbar color = "secondary">
     <ion-buttons slots = "start" class="menu_btn" >
       <ion-back-button color="light" defaultHref="order">
         </ion-back-button>
@@ -25,6 +25,14 @@
       <div class="img">
         <img src="../../../assets/food/{{item.image}}"/>
       </div>
+
+      <div class="title">{{item.title}}</div>
+      <div class="price">E{{item.amount}}</div>
+      <div class="transId">Transaction ID: #{{item.transId}}</div>
+      <div class="time">{{item.time}}</div>
+      <div class="mobilePayment">{{item.mobilePayment}}</div>
+      <div class="status" [ngStyle]="{'color':(item.status==='SUCCESS')?'green':(item.status==='FAILED')?'red':'orange'}">{{item.status}}</div>
+      
     </div>
   </div>
 </ion-content>

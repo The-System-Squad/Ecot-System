@@ -1,44 +1,35 @@
-{
-	"status": "success",
-	"code": 1,
-	"message": "questions",
-	"document" : {
-		"pageno": 1,
-		"pagesize": 10,
-		"total_count": "10",
-		"records": [
-			{
+[{
 			"date" : "Today , 24 Nov 2023",
 				"transactions" : [
 					{
 						"id":  "01",
-						"image": "001.JPG",
-						"title": "Beef Stew",
+						"image": "images (2).jpeg",
+   					 "title": "Chicken & pap ",
 						"amount":"35.00",
 						"transId": "58745212",
 						"time": "08.25 AM",
-						"bank": "MoMo Pay",
+						"mobilePayment": "MoMo Pay",
 						"status": "SUCCESS"
 					},
 					{
 						"id":  "02",
-						"image": "002.JPG",
-						"title": "Chicken Stew",
+						"image": "images.jpeg",
+    "title": "Beef & pap",
 						"amount":"32.00",
 						"transId": "43567893",
 						"time": "13.23 PM",
-						"bank": "EMali",
+						"mobilePayment": "EMali",
 						"status": "SUCCESS"
 					},
 					{
 						"id":  "03",
-						"image": "003.JPG",
-						"title": "Chicken Dust",
+						"image": "Moroccan252520Beef252520Stew252520above.jpg",
+    "title": "Rice & mince",
 						"amount":"30.00",
 						"transId": "90457287",
 						"time": "18.43 PM",
-						"bank": "EMali",
-						"status": "Failed"
+						"mobilePayment": "EMali",
+						"status": "FAILED"
 					}
 
 ]
@@ -49,33 +40,33 @@
 				"transactions": [
 					{
 						"id":  "04",
-						"image": "004.JPG",
-						"title": "Beef Stew",
+						"image": "pap-and-chicken-stew-recipe-main-photo.jpg",
+    "title": "Chichen & pap",
 						"amount":"35.00",
 						"transId": "58745212",
 						"time": "08.25 AM",
-						"bank": "MoMo Pay",
-						"status": "SUCCESS"
+						"mobilePayment": "MoMo Pay",
+						"status": "CANCELLED"
 					},
 					{
 						"id":  "05",
-						"image": "005.JPG",
-						"title": "Chicken Stew",
+						"image": "vYBCXD4T530vnbze9fy6x9GjRisL81dmULtwd6kn.jpg",
+						"title": "Potato chips",
 						"amount":"32.00",
 						"transId": "43567893",
 						"time": "13.23 PM",
-						"bank": "Cash on Delivery",
-						"status": "SUCCESS"
+						"mobilePayment": "Cash on Delivery",
+						"status": "CANCELLED"
 					},
 					{
 						"id":  "06",
-						"image": "006.JPG",
-						"title": "Chicken Dust",
+						"image": "002.JPG",
+    "title": "Chicken stew",
 						"amount":"30.00",
 						"transId": "90457287",
 						"time": "18.43 PM",
-						"bank": "EMali",
-						"status": "Success"
+						"mobilePayment": "EMali",
+						"status": "SUCCESS"
 					}
 ]
 },
@@ -84,30 +75,27 @@
 				"transactions": [
 					{
 						"id":  "07",
-						"image": "007.JPG",
-						"title": "Beef Stew",
+						"image": "002.JPG",
+    "title": "Chicken stew",
 						"amount":"35.00",
 						"transId": "58745212",
 						"time": "08.25 AM",
-						"bank": "MoMo Pay",
+						"mobilePayment": "MoMo Pay",
 						"status": "SUCCESS"
 					},
 					{
 						"id":  "08",
-						"image": "003.JPG",
-						"title": "Chicken Stew",
+						"image": "Moroccan252520Beef252520Stew252520above.jpg",
+    "title": "Rice & mince",
 						"amount":"32.00",
 						"transId": "43567893",
 						"time": "13.23 PM",
-						"bank": "EMali",
+						"mobilePayment": "EMali",
 						"status": "SUCCESS"
 					}
   ]
 }
 		]
-	}
-
-}
 				
 
 

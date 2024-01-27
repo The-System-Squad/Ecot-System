@@ -7,38 +7,25 @@
   </div>
   <div class="middle">
     <div class="box">
-      <form #loginForm="ngForm">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <p>Please Login to Your Account</p>
         <ion-item>
           <ion-label position="floating">Email Address</ion-label>
-          <ion-input type="email" placeholder="Email" name="email" #email="ngModel" [(ngModel)]="login.email"
-          required email></ion-input>
+          <ion-input type="email" formControlName="email"  placeholder="Email" name="email" ></ion-input>
           <ion-icon class="ion-align-self-center" slot="end" name="mail"></ion-icon>
-
         </ion-item>
-        <div *ngIf="email.invalid && email.touched ">
-          <ion-text color="danger text-center">
-            <h4 style="padding-left: 20px; margin-top: 10px;">Please Write Email Address</h4>
-          </ion-text>
-        </div>
 
         <ion-item>
           <ion-label position="floating">Password</ion-label>
-          <ion-input [type]="type ? 'password' : 'text'" placeholder="Password" name="password" #password="ngModel"
-          [(ngModel)]="login.password" required></ion-input>
+          <ion-input [type]="type ? 'password' : 'text'" formControlName="password"  placeholder="Password" name="password"></ion-input>
           <ion-icon class="ion-align-self-center" name="eye-outline" slot="end"  (click)="changeType()"
           [name]="type ? 'eye' : 'eye-off'"></ion-icon>
         </ion-item>
-       
-        <div *ngIf="password.invalid && password.touched ">
-          <ion-text color="danger text-center">
-            <h4 style="padding-left: 20px; margin-top: 10px;">Please Provide Password</h4>
-          </ion-text>
-        </div>
 
         <p id="forgetPassword" (click)="goToForget()"> Forget Password</p>
         <div class="btn">
-          <ion-button (click)="goToHome()" [disabled]="loginForm.invalid">Login</ion-button>
+
+          <ion-button class="btn btn-primary" type="submit">Login</ion-button>
         </div>
       </form>
       <p id="media"> Or Login using Social Media</p>

@@ -29,9 +29,90 @@ ion-header{
     }
     img{
         width: 35px;
-        height:n35px;
+        height:35px;
         border-radius: 50%;
         margin-right: 10px;
     }
 
+}
+
+ion-content{
+    --background: #f0f0f2;
+    #date{
+        padding-left: 20px;
+
+    }
+    .upperBox{
+        background-color: #fff;
+        margin-top: 20px;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+        height: auto;
+        display: grid;
+        grid-template-columns: 25% 50% 25%;
+        grid-template-rows: 34% 33% 33%;
+        gap: 0px 0px;
+        grid-auto-flow: row;
+        grid-template-areas: 
+        "img title price"
+        "img transId time"
+        "img mobilePayment status";
+
+        .img{
+            grid-area: img;
+            justify-self: center;
+            align-self: center;
+            
+            .img{
+                
+                width: 35px;
+                height:35px;
+                border-radius: 50%;
+                margin-right: 10px;
+                
+            }
+        }
+        .title{
+            grid-area: title;
+            padding-top: 10px;
+
+        }
+        .price{
+            grid-area: price;
+            justify-self: end;
+            color: #0a0003;
+            align-self: start;
+            margin-right: 20px;
+            padding-top: 10px;
+        }
+
+        .trandId{
+            grid-area: transId;
+            color:#0a0003;
+           //margin-top: -10px;
+        }
+        .time{
+            grid-area: time;
+            justify-self: end;
+            color:#0a0003;
+            align-self: start;
+            margin-right: 20px;
+        }
+        .mobilePayment{
+            grid-area: mobilePayment;
+            font-size: 14px;
+            color: #0a0003;
+            padding-top: -30px;
+
+        }
+        .status{
+            grid-area: status;
+            justify-self: end;
+            align-self: start;
+            margin-right: 20px;
+            font-weight: bold;
+            padding-top: -30px;
+        }
+
+
+    }
 }

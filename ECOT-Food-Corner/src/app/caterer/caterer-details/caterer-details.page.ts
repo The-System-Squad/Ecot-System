@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
 import { AppServiceService } from '../app-service.service';
-import * as menuDish from '../../assets/json/menuDish.json';
 
 
 @Component({
