@@ -1,19 +1,20 @@
-<ion-header>
-<ion-toolbar color="secondary">
-  <ion-buttons slot = "start" class="menu_btn" >
-    <ion-menu-button color="light"></ion-menu-button>
-  </ion-buttons>
-<ion-title>
-  Caterer list
-</ion-title>
-<ion-icon name="notifications" slot="end" (click)="notificationModal($event)"></ion-icon>
-<ion-badge id="notifications-badge-msg" color="danger">2</ion-badge>
+<ion-header >
+  <ion-toolbar color = "secondary">
+    <ion-buttons slots = "start" class="menu_btn" >
+      
+        <ion-title>Caterer List</ion-title>
+        <ion-icon name = "notifications" slot="end" (click)="notificationModal($event)"></ion-icon>
+        <ion-badge id= "notifications-badge-msg" color="danger">2</ion-badge>
 
-<ion-icon name="cart" slot="end"></ion-icon>
-<ion-badge id="notifications-badge" color="danger">5</ion-badge>
-
-<img slot="end" src="../../../assets/PSX_20220717_175501.jpg" (click)="presentModal($event)"/> 
-</ion-toolbar>
+        <a href="order">
+        <ion-icon name="cart" slot="end" color="light"> </ion-icon>
+        </a>
+        <ion-badge id = "notifications-badge" color="danger">5</ion-badge>
+        <a href="person">
+        <img slot = "end" src="../../../assets/PSX_20220717_175501.jpg" />
+        </a>
+      </ion-buttons>
+  </ion-toolbar>
 
 <ion-toolbar color = "secondary">
   <ion-searchbar placeholder="Search Caterer or Dish"></ion-searchbar>
@@ -42,7 +43,7 @@
     </div>
   <div class="lower-box">
     <div class="wrapper">
-      <div class= "item" *ngFor = "let item of dish">
+      <div class= "item" *ngFor = "let item of dish1">
         <img id="img" src="../../../../assets/food/{{item.image}}"/>
       
       </div>
@@ -70,7 +71,7 @@
       </div>
     <div class="lower-box">
       <div class="wrapper">
-        <div class= "item" *ngFor = "let item of dish1">
+        <div class= "item" *ngFor = "let item of dish2">
           <img id="img" src="../../../../assets/food/{{item.image}}"/>
         
         </div>
@@ -98,7 +99,7 @@
         </div>
       <div class="lower-box">
         <div class="wrapper">
-          <div class= "item" *ngFor = "let item of dish2">
+          <div class= "item" *ngFor = "let item of dish">
             <img id="img" src="../../../../assets/food/{{item.image}}"/>
           
           </div>

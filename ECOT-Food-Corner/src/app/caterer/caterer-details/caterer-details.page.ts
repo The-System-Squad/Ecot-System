@@ -22,7 +22,7 @@ orders: any=[];
 
   ngOnInit() {
     this.presentLoading().then(()=>{
-      this.service.getAllMenuDishes().subscribe((data)=>{
+      this.service.getAllDishes().subscribe((data)=>{
         this.data = data;
         console.log(this.data);
         this.loadingController.dismiss();

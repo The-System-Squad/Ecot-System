@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators} from '@angular/forms';
-import { PasswordValidator} from '../registration/password.validator'
-import { AuthenticationService } from './authentication.service';
-import { HotToastService } from '@ngneat/hot-toast'
+import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthenticationService } from '../registration/authentication.service';
+import { HotToastService } from '@ngneat/hot-toast';
+import { PasswordValidator } from '../registration/password.validator';
 
 export function passwordsMatchValidator(): ValidatorFn{
   return (control: AbstractControl): ValidationErrors | null => {
@@ -19,24 +19,23 @@ export function passwordsMatchValidator(): ValidatorFn{
   }
 }
 
-
 @Component({
-  selector: 'app-registration',
-  templateUrl: './registration.page.html',
-  styleUrls: ['./registration.page.scss'],
+  selector: 'app-catererreg',
+  templateUrl: './catererreg.page.html',
+  styleUrls: ['./catererreg.page.scss'],
 })
-export class RegistrationPage implements OnInit {
-
-registrationForm= new FormGroup({
+export class CatererregPage implements OnInit {registrationForm= new FormGroup({
   firstName: new FormControl('', Validators.required),
   lastName: new FormControl('', Validators.required),
+  businessName: new FormControl('', Validators.required),
   dateofBirth: new FormControl('',Validators.required),
-  roomNumber: new FormControl('',Validators.required),
+  residentialAddress: new FormControl('',Validators.required),
   phoneNumber: new FormControl('',Validators.maxLength(8)),
   email: new FormControl('', Validators.email),
   password: new FormControl(''),
   confirmPassword: new FormControl(''),
 }, {validators: PasswordValidator});
+  snackBar: any;
 
 get firstName(){
   return this.registrationForm.get('firstName');
@@ -44,11 +43,16 @@ get firstName(){
 get lastName(){
   return this.registrationForm.get('lastName');
 }
+
+get businessName(){
+  return this.registrationForm.get('businessName');
+}
+
 get dateofBirth(){
   return this.registrationForm.get('dateofBirth');
 }
-get roomNumber(){
-  return this.registrationForm.get('roomNumber');
+get residentialAddress(){
+  return this.registrationForm.get('residentialAddress');
 }
 get phoneNumber(){
   return this.registrationForm.get('phoneNumber');
@@ -67,19 +71,26 @@ get confirmPassword(){
 
   ngOnInit() {
   }
-onSubmit(){
-  if(!this.registrationForm.valid) return;
 
-  const{ firstName, email, password} = this.registrationForm.value;
-  this.authService.signup(firstName,this.lastName,this.dateofBirth,this.roomNumber,this.phoneNumber,email, password, this.confirmPassword).pipe(
-    this.toast.observe({
-      success: 'Congrats! You are all signed up',
-      loading: 'Signing in',
-      error: 'input all feilds'
-    })
-  ).subscribe(()=>{
-    this.router.navigate(['/login'])
-  })
+onSubmit(): void{
+  const role = 'customer';
+
+  this.authService.register(this.registrationForm.value).subscribe({
+    next: (res) => {
+      if (res == null){
+        alert("Registration did not succeed");
+        this.ngOnInit();
+      }else{
+        console.log("Registration successful");
+        this.router.navigate(['/login']);
+      }
+    },
+    error: () =>{
+  alert("Registration failed.");
+  this.ngOnInit()
+},
+complete: () => console.log('completed')
+    
+  });
 }
 }
-

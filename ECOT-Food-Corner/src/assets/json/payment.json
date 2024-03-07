@@ -1,5 +1,5 @@
 [{
-			"date" : "Today , 24 Nov 2023",
+			"date" : "Today , 29 January 2024",
 				"transactions" : [
 					{
 						"id":  "01",
@@ -10,26 +10,7 @@
 						"time": "08.25 AM",
 						"mobilePayment": "MoMo Pay",
 						"status": "SUCCESS"
-					},
-					{
-						"id":  "02",
-						"image": "images.jpeg",
-    "title": "Beef & pap",
-						"amount":"32.00",
-						"transId": "43567893",
-						"time": "13.23 PM",
-						"mobilePayment": "EMali",
-						"status": "SUCCESS"
-					},
-					{
-						"id":  "03",
-						"image": "Moroccan252520Beef252520Stew252520above.jpg",
-    "title": "Rice & mince",
-						"amount":"30.00",
-						"transId": "90457287",
-						"time": "18.43 PM",
-						"mobilePayment": "EMali",
-						"status": "FAILED"
+					
 					}
 
 ]

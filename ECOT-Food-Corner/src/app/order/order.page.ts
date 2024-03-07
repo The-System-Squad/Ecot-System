@@ -13,7 +13,7 @@ export class OrderPage implements OnInit {
   orders: any = [];
   number = 1;
   total_amt = 0;
-  totalItemPrice: any = [];
+  totalItemPrice;
   returnDataFromModal: any;
   constructor(private service: AppServiceService, public loadingController: LoadingController,private modalCtrl : ModalController,) { }
 
@@ -35,15 +35,15 @@ export class OrderPage implements OnInit {
     });
     await loading.present();
   }
-  remove(id: number) {
+  remove(id) {
     console.log(id);
-    if (this.orders[id].qty > 1) {
+    if (this.orders[id].qty > 0) {
       console.log(this.orders[id].qty);
       this.orders[id].qty = this.orders[id].qty - 1;
       this.total_amt = this.total_amt - this.orders[id].amount;
       this.removeItemPrice(this.orders[id].qty,this.orders[id].amount,this.orders[id].title)
     } else {
-      this.orders[id].qty = 1;
+      this.orders[id].qty = 0;
     }
 
   }
@@ -51,32 +51,34 @@ export class OrderPage implements OnInit {
   add(id: number) {
     console.log(id);
     console.log(this.orders[id].qty);
-    this.orders[id].qty = this.orders[id].qty + 1;
-    this.total_amt = this.total_amt + this.orders[id].amount;
-    this.itemPrice(this.orders[id].qty,this.orders[id].amount,this.orders[id].title)
-
+    this.orders[id].qty = parseInt(this.orders[id].qty) + 1;
+    this.total_amt = this.total_amt + parseInt(this.orders[id].amount);
+    this.itemPrice(this.orders[id].qty,parseInt(this.orders[id].amount),this.orders[id].title)
   }
+
+
   total() {
-    for (let i = 0; i < this.orders.length; i++) {
-      this.total_amt = this.total_amt + this.orders[i].amount;     
+    for (let i = 0; i < parseInt(this.orders.length); i++) {
+      this.total_amt = this.total_amt + parseInt(this.orders[i].amount);     
     }
   }
 
-  itemPrice(qty: number, amt: number,title: any) {
+  itemPrice(qty, amt, title) {
     console.log(qty,amt,title);
     this.totalItemPrice = (qty * amt).toFixed(2);
     console.log(this.totalItemPrice);   
   }
 
-  removeItemPrice(qty: number, amt: number,title: any) {
+  removeItemPrice(qty, amt,title) {
     console.log(qty,amt,title);
     this.totalItemPrice = (qty * amt).toFixed(2);
     console.log(this.totalItemPrice);   
   }
 
-  deleteItem(i: any) {
+  deleteItem(i) {
     console.log(i);
-    this.orders = this.orders.filter((item: { id: any; }) => item.id !== i);
+    this.orders = this.orders.filter((item: { id; }) => item.id !== i);
+    
 
   }
 

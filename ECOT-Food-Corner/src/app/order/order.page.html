@@ -1,16 +1,20 @@
-<ion-header>
+<ion-header >
   <ion-toolbar color = "secondary">
     <ion-buttons slots = "start" class="menu_btn" >
       <ion-back-button color="light" defaultHref="caterer-details">
         </ion-back-button>
-        <ion-title>Orders</ion-title>
+        <ion-title>Cart</ion-title>
+        <ion-icon name = "notifications" slot="end"></ion-icon>
+        <ion-badge id= "notifications-badge-msg" color="danger">2</ion-badge>
+
+        <a href="order">
+        <ion-icon name="cart" slot="end" color="light"> </ion-icon>
+        </a>
+        <ion-badge id = "notifications-badge" color="danger">5</ion-badge>
+        <a href="person">
+        <img slot = "end" src="../../../assets/PSX_20220717_175501.jpg"/>
+        </a>
         </ion-buttons>
-    
-    <ion-icon name="notifications" slot="end" (click)="notificationModal($event)"></ion-icon>
-    <ion-badge id="notifications-badge-msg" color="danger">2</ion-badge>
-    <ion-icon name="cart" slot="end"></ion-icon>
-    <ion-badge id="notifications-badge" color="danger">5</ion-badge>
-    <img slot="end" src="../../assets/PSX_20220717_175501.jpg" (click)="presentModal($event)" />
   </ion-toolbar>
 </ion-header>
 
@@ -27,11 +31,9 @@
         <ion-icon name="trash-outline" (click)="deleteItem(order.id)"></ion-icon>
       </h3>
     </div>
-    <div class="orderId">
-      <p>Est. Time : {{order.time}}</p>
-    </div>
+   
     <div class="amount">
-      <h3>E{{order.amount}}</h3>
+      <h3>E{{order.amount | number : '1.2-2'}}</h3>
     </div>
 
     <div class="time">
@@ -45,19 +47,9 @@
       </div>
     </div>
   </div>
-  <p id="moreItmes" (click)="moreItems()">+ Add more items</p>
+  <p id="moreItems" (click)="moreItems()">+ Add more items</p>
   <!-- {{total_amt + (total_amt/10) -1}} -->
 
-  <div class="order_summary">
-    <h4>Order Summary</h4>
-    <p>Sub Total <span> {{total_amt | number : '1.2-2'}}</span></p>
-    <p>GST <span> {{total_amt / 10 | number : '1.2-2'}}</span></p>
-    <p>Coupon Discount <span style="color:red;">- E1.00</span></p>
-    <p>Delivery <span> Free</span></p>
-    <div id="couponDiv">
-      <p id="coupon">You have saved E10 on the order <span (click)="editCoupon($event)">Edit Coupon</span></p>
-    </div>
-  </div>
 
 </ion-content>
 
@@ -66,12 +58,13 @@
     <ion-row >
       <ion-col size="7">
         <ion-text color="light">
-          <h4>Total : E{{total_amt + (total_amt/10) -1 | number : '1.2-2'}}</h4>
+          <h4>Total : E{{total_amt | number : '1.2-2'}}</h4>
+          
         </ion-text>
       </ion-col>
  
       <ion-col size="5">
-        <p class="ion-text-right ion-padding-end" (click)="orderDetails()">Continue <a href="checkout"><ion-icon name="arrow-forward-outline"> </ion-icon> </a></p>
+        <p class="ion-text-right ion-padding-end" (click)="orderDetails()" ><a href="checkout" color="light">Continue <ion-icon name="arrow-forward-outline"> </ion-icon> </a></p>
       </ion-col>
     </ion-row>
   </ion-toolbar>

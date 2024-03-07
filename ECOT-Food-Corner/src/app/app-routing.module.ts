@@ -8,20 +8,17 @@ const redirectToCatererlist = () => redirectLoggedInTo(['']);
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'folder/Inbox',
+    redirectTo: 'welcome',
     pathMatch: 'full'
   },
-  {
-    path: 'folder/:id',
-    loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
-  },
+  
   {
     path: 'login',
-    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./auth/login/login.module').then( m => m.LoginPageModule)
   },
   {
     path: 'registration',
-    loadChildren: () => import('./pages/registration/registration.module').then( m => m.RegistrationPageModule)
+    loadChildren: () => import('./auth/registration/registration.module').then( m => m.RegistrationPageModule)
   },
   {
     path: 'forget',
@@ -33,7 +30,7 @@ const routes: Routes = [
   },
   {
     path: 'catererreg',
-    loadChildren: () => import('./pages/catererreg/catererreg.module').then( m => m.CatererregPageModule)
+    loadChildren: () => import('./auth/catererreg/catererreg.module').then( m => m.CatererregPageModule)
   },
   {
     path: 'orderlhistory',
@@ -76,6 +73,11 @@ const routes: Routes = [
     path: 'checkout',
     loadChildren: () => import('./pages/checkout/checkout.module').then( m => m.CheckoutPageModule)
   },
+  {
+    path: 'welcome',
+    loadChildren: () => import('./welcome/welcome.module').then( m => m.WelcomePageModule)
+  },
+
   
   
 ];

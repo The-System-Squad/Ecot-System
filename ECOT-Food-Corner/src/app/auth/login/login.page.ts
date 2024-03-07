@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthenticationService } from '../registration/authentication.service';
-import { HotToastService } from '@ngneat/hot-toast';
+import { User } from 'src/app/model/user';
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -14,9 +14,19 @@ export class LoginPage implements OnInit {
     email: new FormControl ('',[Validators.required, Validators.email]),
     password: new FormControl('', Validators.required)
   });
+  role : string = '';
+
+  user : User = new User();
+
+  roles : string [];
 
   type: boolean = true;
-  constructor(private router : Router, private authService: AuthenticationService, private toast: HotToastService) { }
+  constructor(private router : Router, private authService : AuthService) {
+    this.roles = [
+      'caterer',
+      'customer'
+    ]
+   }
 
   ngOnInit() {
   }
@@ -66,20 +76,37 @@ export class LoginPage implements OnInit {
     return this.loginForm.get('email');
   }
   get password(){
-    return this.loginForm.get('email');
+    return this.loginForm.get('password');
   }
   onSubmit(){
-    if(!this.loginForm.valid) return;
+    this.user.email = this.loginForm.value.email;
+    this.user.password = this.loginForm.value.password;
+    this.user.role = this.role;
 
-    const{email, password} = this.loginForm.value;
-    this.authService.login(email, password).pipe(
-      this.toast.observe({
-        success: 'Logged in succesfully',
-        loading: 'Logging in...',
-        error: 'Invalid email or password'
-      })
-    ).subscribe(()=>{
-      this.router.navigate(['/catererlist'])
-    })
+    this.authService.login(this.user).subscribe({
+      next: (res) => {
+        if(res == null){
+          alert("Email or passsword is wrong");
+          this.ngOnInit();
+        }else{
+          console.log("Login successful");
+          localStorage.setItem("token", res.token);
+  
+          if (this.role == 'customer'){
+            this.router.navigate(['/catererlist']);
+          }
+          if( this.role == 'caterer'){
+            this.router.navigate(['/home']);
+          }
+        }
+      },
+      error: () =>{
+        alert("Login failed");
+        this.ngOnInit()
+      },
+  complete: () => console.log('completed')
+      
+    });
+    
   }
 }

@@ -1,0 +1,87 @@
+<ion-header>
+  <ion-toolbar color = "secondary">
+    <ion-buttons slot="start">
+      <ion-back-button color="light" defaultHref="login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Customer Registration</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<hr /> 
+
+<ion-content>
+  <div class = "middle">
+  <div class= "box">
+  <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <ion-label>Firstname: </ion-label>
+      <ion-input [class.is-invalid]="firstName.invalid && firstName.touched" formControlName="firstName" type="text" fill="outline" class="form-control">
+      </ion-input>
+      <div *ngIf="firstName.invalid && firstName.touched">
+      <small [class.d-none]="firstName.valid || firstName.untouched" class="text-danger">Enter Your First Name</small>
+    </div>
+    </div>
+
+    <div class="form-group">
+      <ion-label>Lastname: </ion-label>
+      <ion-input formControlName="lastName" type="text" fill="outline" class="form-control">
+      </ion-input>
+      <div *ngIf="lastName.invalid && lastName.touched">
+        <small [class.d-none]="lastName.valid || lastName.untouched" class="text-danger">Enter Your Last Name</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <ion-label>Date of Birth: </ion-label>
+      <ion-input formControlName="dateofBirth" type="text" fill="outline" class="form-control">
+      </ion-input>
+      <div *ngIf="dateofBirth.invalid && dateofBirth.touched">
+        <small [class.d-none]="dateofBirth.valid || dateofBirth.untouched" class="text-danger">Input Your Birth Date</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <ion-label>Room Number: </ion-label>
+      <ion-input formControlName="roomNumber" type="text" fill="outline" class="form-control">
+      </ion-input>
+      <div *ngIf="roomNumber.invalid && roomNumber.touched">
+        <small [class.d-none]="roomNumber.valid || roomNumber.untouched" class="text-danger">Enter Your Room Number</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <ion-label>Phone Number: </ion-label>
+      <ion-input formControlName="phoneNumber" type="integer" fill="outline" class="form-control">
+      </ion-input>
+      <div *ngIf="phoneNumber.invalid && phoneNumber.touched">
+        <small [class.d-none]="phoneNumber.valid || phoneNumber.untouched" class="text-danger">Enter Your Phone Number</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <ion-label>Email: </ion-label>
+      <ion-input formControlName="email" type="email" fill="outline" class="form-control">
+      </ion-input>
+    </div>
+
+    <div class="form-group">
+      <ion-label>Password: </ion-label>
+      <ion-input formControlName="password" type="password" fill="outline" class="form-control">
+      </ion-input>
+      <div *ngIf="registrationForm.get('password')!.invalid && registrationForm.get('password')!.touched">
+        <small [class.d-none]="registrationForm.get('password').valid || registrationForm.get('password').untouched" class="text-danger">Create Password</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <ion-label>Confirm Password: </ion-label>
+      <ion-input [class.is-invalid]="registrationForm.errors?.['misMatch']!" formControlName="confirmPassword" type="password" fill="outline" class="form-control">
+      </ion-input>
+      <small class="text-danger" *ngIf="registrationForm.errors?.['misMatch']!"> Password do not Match</small>
+</div>
+      <ion-button class="btn btn-primary" type="submit">Signup</ion-button>
+    
+  </form>
+</div>
+</div>
+</ion-content>

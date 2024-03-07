@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button color="light" defaultHref="login"></ion-back-button>
     </ion-buttons>
-    <ion-title>Customer Registration</ion-title>
+    <ion-title>Caterer Registration</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -32,6 +32,15 @@
     </div>
 
     <div class="form-group">
+      <ion-label>Business Name: </ion-label>
+      <ion-input formControlName="businessName" type="text" fill="outline" class="form-control">
+      </ion-input>
+      <div *ngIf="businessName.invalid && businessName.touched">
+        <small [class.d-none]="businessName.valid || businessName.untouched" class="text-danger">Enter Your Business Name</small>
+      </div>
+    </div>
+
+    <div class="form-group">
       <ion-label>Date of Birth: </ion-label>
       <ion-input formControlName="dateofBirth" type="date" fill="outline" class="form-control">
       </ion-input>
@@ -41,11 +50,11 @@
     </div>
 
     <div class="form-group">
-      <ion-label>Room Number: </ion-label>
-      <ion-input formControlName="roomNumber" type="text" fill="outline" class="form-control">
+      <ion-label>Residential address: </ion-label>
+      <ion-input formControlName="residentialAddress" type="text" fill="outline" class="form-control">
       </ion-input>
-      <div *ngIf="roomNumber.invalid && roomNumber.touched">
-        <small [class.d-none]="roomNumber.valid || roomNumber.untouched" class="text-danger">Enter Your Room Number</small>
+      <div *ngIf="residentialAddress.invalid && residentialAddress.touched">
+        <small [class.d-none]="residentialAddress.valid || residentialAddress.untouched" class="text-danger">Enter Your Residential Address</small>
       </div>
     </div>
 
