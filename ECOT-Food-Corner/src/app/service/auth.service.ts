@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { User } from '../model/user';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -8,21 +7,37 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
 
+readonly APIUrl= "https://localhost:7166/api";
+readonly PhotoUrl= "https://localhost:7166/Photos";
 
-  loginUrl : string = '';
-  signUpUrl : string = '';
+  
 
-  constructor(private http : HttpClient) { 
+  constructor(private http : HttpClient) { }
 
-    this.loginUrl = "http://localhost:8080/auth/login";
-    this.signUpUrl = "http://localhost:8080/auth/register";
+  getUser(val: any){
+    return this.http.get(this.APIUrl+'/user',val)
+    
   }
 
-  login(user : User) : Observable<any>{
-    return this.http.post<any>(this.loginUrl, user);
+  addUser(val: any){
+    return this.http.post(this.APIUrl+'/user',val)
   }
 
-  signUp(user : User) : Observable<any> {
-    return this.http.post<any>(this.signUpUrl, user);
+  addish(val: any){
+    return this.http.post(this.APIUrl+'/user/dish',val)
   }
+
+  updateUser(val: any){
+    return this.http.put(this.APIUrl+'/user',val)
+  }
+
+  deleteUser(val: any){
+    return this.http.delete(this.APIUrl+'/user/',val)
+  }
+
+  uploadPhoto(val: any){
+    return this.http.post(this.APIUrl+'/user/savefile',val)
+  }
+
+  
 }

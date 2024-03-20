@@ -6,10 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
-
+  sliderConfig = {
+    spaceBetween:  1,
+    slidesPerView: 1.7
+  } 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  notificationModal(ev: any){
+
   }
 
 }

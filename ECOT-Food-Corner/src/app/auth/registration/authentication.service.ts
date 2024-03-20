@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Auth, PasswordPolicy, authState, signInWithEmailAndPassword, createUserWithEmailAndPassword, user, updateProfile} from '@angular/fire/auth'
+import { ToastrService } from 'ngx-toastr';
 import { Observable, from, switchMap } from 'rxjs';
 
 const Basic_URL = "http://localhost:8080";
@@ -12,20 +13,18 @@ export class AuthenticationService {
 
   currentUser$ = authState(this.auth);
 
-  constructor(private auth: Auth, private http: HttpClient) { }
+  constructor(private auth: Auth, private http: HttpClient, private toastr: ToastrService) { }
 
-  register(signupRequest: any): Observable<any>{
-    return this.http.post(Basic_URL + "catererreg", signupRequest);
+  login(EMAIL: string, PASSWORD: string, ROLES){
+    return from(signInWithEmailAndPassword(this.auth, EMAIL, PASSWORD))
   }
 
-  login(email: string, password: string){
-    return from(signInWithEmailAndPassword(this.auth, email, password))
-  }
-
-  signup(firstName, lastName, dateofBirth, roomNumber, phoneNumber, email, password, confirmPassword){
-    return from(createUserWithEmailAndPassword(this.auth, email, password,)
-    ).pipe(switchMap(({ user }) => updateProfile(user, { displayName: firstName}))
+  signup(FIRST_NAME,LAST_NAME, DATE_OF_BIRTH, RESIDENTIAL_ADDRESS, CONTACT_NUM, EMAIL, PASSWORD, ROLES, PHOTOFILENAME){
+    return from(createUserWithEmailAndPassword(this.auth, EMAIL, PASSWORD)
+    ).pipe(switchMap(({ user }) => updateProfile(user, { displayName: FIRST_NAME}))
     );
-  }
-
+ }
+  showSuccess(message: string){
+  this.toastr.success(message);
+}
 }

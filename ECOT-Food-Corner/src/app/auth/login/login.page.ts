@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { User } from 'src/app/model/user';
-import { AuthService } from 'src/app/service/auth.service';
+import { AuthenticationService } from '../../service/authentication.service';
+import { HotToastService } from '@ngneat/hot-toast';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -10,25 +11,28 @@ import { AuthService } from 'src/app/service/auth.service';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  loginForm = new FormGroup({
-    email: new FormControl ('',[Validators.required, Validators.email]),
-    password: new FormControl('', Validators.required)
-  });
+  
   role : string = '';
 
-  user : User = new User();
-
-  roles : string [];
+  roles: string [];
 
   type: boolean = true;
-  constructor(private router : Router, private authService : AuthService) {
+  constructor(private router : Router, private authService: AuthenticationService, private toast: HotToastService, private toastr: ToastrService) {
     this.roles = [
-      'caterer',
-      'customer'
+      'Caterer',
+      'Customer'
     ]
    }
+   loginForm = new FormGroup({
+    EMAIL: new FormControl ('',[Validators.required, Validators.email]),
+    PASSWORD: new FormControl('', Validators.required),
+    ROLES: new FormControl(this.role)
+  });
 
   ngOnInit() {
+    this.loginForm.value.EMAIL = '';
+    this.loginForm.value.PASSWORD= '';
+    this.loginForm.value.ROLES='';
   }
 
   changeType() {
@@ -72,40 +76,29 @@ export class LoginPage implements OnInit {
   goToRegistration() {
     this.router.navigate(['registration']);
   }
-  get email(){
-    return this.loginForm.get('email');
-  }
-  get password(){
-    return this.loginForm.get('password');
-  }
+  
   onSubmit(){
-    this.user.email = this.loginForm.value.email;
-    this.user.password = this.loginForm.value.password;
-    this.user.role = this.role;
+  
+    this.loginForm.value.EMAIL;
+    this.loginForm.value.PASSWORD;
+    this.loginForm.value.ROLES;
 
-    this.authService.login(this.user).subscribe({
+    this.authService.login(this.loginForm.value).subscribe({
       next: (res) => {
-        if(res == null){
-          alert("Email or passsword is wrong");
+        if (res==null){
+          alert("Incorrect email or password");
           this.ngOnInit();
         }else{
-          console.log("Login successful");
-          localStorage.setItem("token", res.token);
-  
-          if (this.role == 'customer'){
+          console.log("Login Succesfully");
+          this.loginForm.reset;
+          
             this.router.navigate(['/catererlist']);
-          }
-          if( this.role == 'caterer'){
-            this.router.navigate(['/home']);
-          }
         }
+      },error:()=>{
+        alert("Login Error");
+        this.ngOnInit();
       },
-      error: () =>{
-        alert("Login failed");
-        this.ngOnInit()
-      },
-  complete: () => console.log('completed')
-      
+      complete:() => console.log("completed")
     });
     
   }

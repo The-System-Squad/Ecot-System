@@ -1,0 +1,62 @@
+<ion-header >
+  <ion-toolbar color = "secondary">
+    <ion-buttons slots = "start" class="menu_btn" >
+      
+        <ion-title>Caterer List</ion-title>
+        <ion-icon name = "notifications" slot="end" (click)="notificationModal($event)"></ion-icon>
+        <ion-badge id= "notifications-badge-msg" color="danger"></ion-badge>
+
+        <a href="order">
+        <ion-icon name="cart" slot="end" color="light"> </ion-icon>
+        </a>
+        <ion-badge id = "notifications-badge" color="danger"></ion-badge>
+        <a href="person">
+        <img slot = "end" src="../../../assets/PSX_20220717_175501.jpg" />
+        </a>
+      </ion-buttons>
+  </ion-toolbar>
+<hr/>
+<ion-content color="light">
+    <div class="img">
+      <a href="view-dishes">
+    <ion-item [button]="true ">
+      <ion-icon color="danger" slot="start" name="list-circle" size="large"></ion-icon>
+      <ion-label>View Dishes</ion-label>
+
+    </ion-item>
+  </a>
+  </div>
+</ion-content>
+
+<ion-content color="light">
+  <div class="img">
+    <a href="add-menu">
+  <ion-item [button]="true">
+    <ion-icon color="danger" slot="start" name="list-circle" size="large"></ion-icon>
+    <ion-label>Add Menu</ion-label>
+  </ion-item>
+</a>
+</div>
+</ion-content>
+
+<ion-content color="light">
+  <div class="img">
+    <a href="view-orders">
+  <ion-item [button]="true" >
+    <ion-icon color="danger" slot="start" name="list-circle" size="large"></ion-icon>
+    <ion-label>View Orders</ion-label>
+  </ion-item>
+</a>
+</div>
+</ion-content>
+
+<ion-content color="light">
+  <div class="img">
+    <a href="view-payment">
+  <ion-item [button]="true">
+    <ion-icon color="danger" slot="start" name="list-circle" size="large"></ion-icon>
+    <ion-label>View Payment History</ion-label>
+  </ion-item>
+</a>
+</div>
+</ion-content>

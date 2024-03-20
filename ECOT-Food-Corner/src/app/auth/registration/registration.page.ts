@@ -1,24 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators} from '@angular/forms';
-import { PasswordValidator} from './password.validator'
-import { User } from 'src/app/model/user';
-import { AuthService } from 'src/app/service/auth.service';
+import { PasswordValidator} from '../registration/password.validator'
+import { AuthenticationService } from '../../service/authentication.service'
+import { HotToastService } from '@ngneat/hot-toast'
 import { Router } from '@angular/router';
-
-export function passwordsMatchValidator(): ValidatorFn{
-  return (control: AbstractControl): ValidationErrors | null => {
-      const password = control.get('password')?.value;
-      const confirmPassword = control.get('confirmPassword')?.value;
-
-      if (password && confirmPassword && password !== confirmPassword){
-        return {
-          passwordsDontMatch: true
-        }
-      }
-      return null;
-  }
-}
-
 
 @Component({
   selector: 'app-registration',
@@ -27,83 +12,98 @@ export function passwordsMatchValidator(): ValidatorFn{
 })
 export class RegistrationPage implements OnInit {
 
+
 registrationForm= new FormGroup({
-  firstName: new FormControl('', Validators.required),
-  lastName: new FormControl('', Validators.required),
-  dateofBirth: new FormControl('',Validators.required),
-  roomNumber: new FormControl('',Validators.required),
-  phoneNumber: new FormControl('',Validators.maxLength(8)),
-  email: new FormControl('', Validators.email),
-  password: new FormControl(''),
-  confirmPassword: new FormControl(''),
+  FIRST_NAME: new FormControl('', Validators.required),
+  LAST_NAME: new FormControl('', Validators.required),
+  DATE_OF_BIRTH: new FormControl('',Validators.required),
+  RESIDENTIAL_ADDRESS: new FormControl('',Validators.required),
+  CONTACT_NUM: new FormControl('',Validators.maxLength(8)),
+  EMAIL: new FormControl('', Validators.email),
+  PASSWORD: new FormControl(''),
+  confirmPASSWORD: new FormControl(''),
+  TOKEN: new FormControl(''),
+  ROLES: new FormControl('Customer'),
+  PHOTOFILENAME: new FormControl('anonymous.png')
 }, {validators: PasswordValidator});
 
-user : User = new User();
-
-get firstName(){
-  return this.registrationForm.get('firstName');
+get FIRST_NAME(){
+  return this.registrationForm.get('FIRST_NAME');
 }
-get lastName(){
-  return this.registrationForm.get('lastName');
+get LAST_NAME(){
+  return this.registrationForm.get('LAST_NAME');
 }
-get dateofBirth(){
-  return this.registrationForm.get('dateofBirth');
+get DATE_OF_BIRTH(){
+  return this.registrationForm.get('DATE_OF_BIRTH');
 }
-get roomNumber(){
-  return this.registrationForm.get('roomNumber');
+get RESIDENTIAL_ADDRESS(){
+  return this.registrationForm.get('RESIDENTIAL_ADDRESS');
 }
-get phoneNumber(){
-  return this.registrationForm.get('phoneNumber');
+get CONTACT_NUM(){
+  return this.registrationForm.get('CONTACT_NUM');
 }
-get email(){
-  return this.registrationForm.get('email');
+get EMAIL(){
+  return this.registrationForm.get('EMAIL');
 }
-get password(){
-  return this.registrationForm.get('password');
+get PASSWORD(){
+  return this.registrationForm.get('PASSWORD');
 }
-get confirmPassword(){
-  return this.registrationForm.get('confirmPassword');
+get confirmPASSWORD(){
+  return this.registrationForm.get('confirmPASSWORD');
 }
 
-  constructor(private authService : AuthService, private router : Router) { }
+get ROLES(){
+  return this.registrationForm.get('ROLES');
+}
 
-  ngOnInit():void {
-    this.registrationForm.value.firstName = '';
-    this.registrationForm.value.lastName = '';
-    this.registrationForm.value.dateofBirth = '';
-    this.registrationForm.value.roomNumber = '';
-    this.registrationForm.value.phoneNumber = '';
-    this.registrationForm.value.email = '';
-    this.registrationForm.value.password = '';
-    this.registrationForm.value.confirmPassword = '';
-  }
+get PHOTOFILENAME(){
+  return this.registrationForm.get('PHOTOFILENAME');
+}
+
+  constructor(  private router: Router, private regist: AuthenticationService , private toast: HotToastService) { }
+
+  ngOnInit() {
+    this.registrationForm.value.FIRST_NAME = '';
+  this.registrationForm.value.LAST_NAME = '';
+  this.registrationForm.value.DATE_OF_BIRTH= '';
+  this.registrationForm.value.RESIDENTIAL_ADDRESS= '';
+  this.registrationForm.value.CONTACT_NUM= '';
+  this.registrationForm.value.EMAIL= '';
+  this.registrationForm.value.PASSWORD= '';
+  this.registrationForm.value.confirmPASSWORD= '';
+  this.registrationForm.value.ROLES= '';
+  this.registrationForm.value.PHOTOFILENAME= '';
+  this.registrationForm.value.TOKEN='';
+}
 onSubmit(){
-  
-  this.user.firstName = this.registrationForm.value.firstName;
-  this.user.lastName = this.registrationForm.value.lastName;
-  this.user.dateofBirth = this.registrationForm.value.dateofBirth;
-  this.user.roomNumber = this.registrationForm.value.roomNumber;
-  this.user.phoneNumber = this.registrationForm.value.phoneNumber;
-  this.user.email = this.registrationForm.value.email;
-  this.user.password = this.registrationForm.value.password;
-  this.user.role = 'customer';
+  this.registrationForm.value.FIRST_NAME;
+  this.registrationForm.value.LAST_NAME;
+  this.registrationForm.value.DATE_OF_BIRTH;
+  this.registrationForm.value.RESIDENTIAL_ADDRESS;
+  this.registrationForm.value.CONTACT_NUM;
+  this.registrationForm.value.EMAIL;
+  this.registrationForm.value.PASSWORD;
+  this.registrationForm.value.confirmPASSWORD;
+  this.registrationForm.value.ROLES;
+  this.registrationForm.value.PHOTOFILENAME;
+  this.registrationForm.value.TOKEN;
 
-  this.authService.signUp(this.user).subscribe({
+  this.regist.register(this.registrationForm.value).subscribe({
     next: (res) => {
-      if (res == null){
+      if (res==null){
         alert("Registration failed");
         this.ngOnInit();
       }else{
-        console.log("Registration successful");
-        this.router.navigate(['/login']);
+        console.log("Registration Succesful");
+        this.registrationForm.reset;
+        
+          this.router.navigate(['/login']);
       }
+    },error:()=>{
+      alert("Registration Error");
+      this.ngOnInit();
     },
-    error: () =>{
-  alert("Registration failed.");
-  this.ngOnInit()
-},
-complete: () => console.log('completed')
-    
+    complete:() => console.log("completed")
   });
 }
 }

@@ -1,0 +1,30 @@
+<ion-header >
+  <ion-toolbar color = "secondary">
+    <ion-buttons slots = "start" class="menu_btn" >
+      <ion-back-button color="light" defaultHref="home">
+        </ion-back-button>
+        <ion-title>Orders</ion-title>
+        <ion-icon name = "notifications" slot="end"></ion-icon>
+        <ion-badge id= "notifications-badge-msg" color="danger"></ion-badge>
+
+        <a href="order">
+        <ion-icon name="cart" slot="end" color="light"> </ion-icon>
+        </a>
+        <ion-badge id = "notifications-badge" color="danger">5</ion-badge>
+        <a href="person">
+        <img slot = "end" src="../../../assets/PSX_20220717_175501.jpg"/>
+        </a>
+        </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-segment value="all">
+      <ion-segment-button value="custom">
+        <ion-label>Current</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="segment">
+        <ion-label>Previous</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-content>

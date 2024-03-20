@@ -1,0 +1,56 @@
+<ion-header >
+  <ion-toolbar color = "secondary">
+    <ion-buttons slots = "start" class="menu_btn" >
+      <ion-back-button color="light" defaultHref="home">
+        </ion-back-button>
+        <ion-title>Add Menu</ion-title>
+        <ion-icon name = "notifications" slot="end"></ion-icon>
+        <ion-badge id= "notifications-badge-msg" color="danger"></ion-badge>
+
+        <a href="order">
+        <ion-icon name="cart" slot="end" color="light"> </ion-icon>
+        </a>
+        <ion-badge id = "notifications-badge" color="danger"></ion-badge>
+        <a href="person">
+        <img slot = "end" src="../../../assets/PSX_20220717_175501.jpg"/>
+        </a>
+        </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="upper">
+    
+    
+  </div>
+  <div class="middle">
+    <div class="box">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <p>Add Your Dish</p>
+        
+          <ion-label>Add Dish Name</ion-label>
+      <ion-input formControlName="DISH_NAME" type="text" fill="outline" class="form-control">
+      </ion-input>
+          
+        
+
+  <ion-label>AMOUNT</ion-label>
+  <ion-input formControlName="AMOUNT" type="text" fill="outline" class="form-control">
+   </ion-input>
+
+   <ion-label>Adda Image</ion-label>
+  <ion-input formControlName="IMAGES" type="file" id="pic" fill="outline" class="form-control">
+   </ion-input>
+
+   <div class="btn">
+
+    <ion-button class="btn btn-primary" type="submit">Add</ion-button>
+  </div>
+         
+        
+      </form>
+    </div>
+  </div>
+        
+
+
+</ion-content>

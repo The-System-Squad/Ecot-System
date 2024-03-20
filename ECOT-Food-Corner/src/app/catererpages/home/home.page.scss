@@ -1,0 +1,51 @@
+ion-header{
+
+    ion-icon{
+        font-size: 30px;
+        position:relative;
+        margin-left: 10px;
+
+}
+#notifications-badge-msg{
+    background-color: rgb(67,7,233);
+    position: absolute;
+    top: 5px;
+    right: 95px;
+    color: #fff;
+    z-index: 111;
+
+}
+#notifications-badge{
+    background-color: rgb(67,7,233);
+    position: absolute;
+    top: 5px;
+    right: 50px;
+    color: #fff;
+    z-index: 111;
+}
+img{
+    width: 35px;
+    height:35px;
+    border-radius: 50%;
+    margin-right: 10px;
+
+}
+}
+ion-content {
+    --background: var(--ion-background-color, --td-bg);
+  }
+ion-item{
+    --background: #19422d;
+    --color: #fff;
+  
+    --border-color: #fff;
+    
+    --border-width: 10px;
+  
+    --border-radius: 30px;
+    --ripple-color: purple;
+    --detail-icon-color:white;
+    --detail-icon-opacity: 1;
+    --detail-icon-font-size:20px;
+  }
+  

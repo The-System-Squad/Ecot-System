@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button color="light" defaultHref="login"></ion-back-button>
     </ion-buttons>
-    <ion-title>Caterer Registration</ion-title>
+    <ion-title>Customer Registration</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -14,79 +14,79 @@
   <div class= "box">
   <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
-      <ion-label>Firstname: </ion-label>
-      <ion-input [class.is-invalid]="firstName.invalid && firstName.touched" formControlName="firstName" type="text" fill="outline" class="form-control">
+      <ion-label>FIRST_NAME: </ion-label>
+      <ion-input [class.is-invalid]="FIRST_NAME.invalid && FIRST_NAME.touched" formControlName="FIRST_NAME" type="text" fill="outline" class="form-control">
       </ion-input>
-      <div *ngIf="firstName.invalid && firstName.touched">
-      <small [class.d-none]="firstName.valid || firstName.untouched" class="text-danger">Enter Your First Name</small>
+      <div *ngIf="FIRST_NAME.invalid && FIRST_NAME.touched">
+      <small [class.d-none]="FIRST_NAME.valid || FIRST_NAME.untouched" class="text-danger">Enter Your First Name</small>
     </div>
     </div>
 
     <div class="form-group">
-      <ion-label>Lastname: </ion-label>
-      <ion-input formControlName="lastName" type="text" fill="outline" class="form-control">
+      <ion-label>LAST_NAME: </ion-label>
+      <ion-input formControlName="LAST_NAME" type="text" fill="outline" class="form-control">
       </ion-input>
-      <div *ngIf="lastName.invalid && lastName.touched">
-        <small [class.d-none]="lastName.valid || lastName.untouched" class="text-danger">Enter Your Last Name</small>
+      <div *ngIf="LAST_NAME.invalid && LAST_NAME.touched">
+        <small [class.d-none]="LAST_NAME.valid || LAST_NAME.untouched" class="text-danger">Enter Your Last Name</small>
       </div>
     </div>
 
     <div class="form-group">
       <ion-label>Business Name: </ion-label>
-      <ion-input formControlName="businessName" type="text" fill="outline" class="form-control">
+      <ion-input formControlName="BUSINESS_NAME" type="text" fill="outline" class="form-control">
       </ion-input>
-      <div *ngIf="businessName.invalid && businessName.touched">
-        <small [class.d-none]="businessName.valid || businessName.untouched" class="text-danger">Enter Your Business Name</small>
+      <div *ngIf="BUSINESS_NAME.invalid && BUSINESS_NAME.touched">
+        <small [class.d-none]="BUSINESS_NAME.valid || BUSINESS_NAME.untouched" class="text-danger">Enter Your Last Name</small>
       </div>
     </div>
 
     <div class="form-group">
       <ion-label>Date of Birth: </ion-label>
-      <ion-input formControlName="dateofBirth" type="date" fill="outline" class="form-control">
+      <ion-input formControlName="DATE_OF_BIRTH" type="date" fill="outline" class="form-control">
       </ion-input>
-      <div *ngIf="dateofBirth.invalid && dateofBirth.touched">
-        <small [class.d-none]="dateofBirth.valid || dateofBirth.untouched" class="text-danger">Input Your Birth Date</small>
+      <div *ngIf="DATE_OF_BIRTH.invalid && DATE_OF_BIRTH.touched">
+        <small [class.d-none]="DATE_OF_BIRTH.valid || DATE_OF_BIRTH.untouched" class="text-danger">Input Your Birth Date</small>
       </div>
     </div>
 
     <div class="form-group">
-      <ion-label>Residential address: </ion-label>
-      <ion-input formControlName="residentialAddress" type="text" fill="outline" class="form-control">
+      <ion-label>Residential Address: </ion-label>
+      <ion-input formControlName="RESIDENTIAL_ADDRESS" type="text" fill="outline" class="form-control">
       </ion-input>
-      <div *ngIf="residentialAddress.invalid && residentialAddress.touched">
-        <small [class.d-none]="residentialAddress.valid || residentialAddress.untouched" class="text-danger">Enter Your Residential Address</small>
+      <div *ngIf="RESIDENTIAL_ADDRESS.invalid && RESIDENTIAL_ADDRESS.touched">
+        <small [class.d-none]="RESIDENTIAL_ADDRESS.valid || RESIDENTIAL_ADDRESS.untouched" class="text-danger">Enter Your Room Number</small>
       </div>
     </div>
 
     <div class="form-group">
       <ion-label>Phone Number: </ion-label>
-      <ion-input formControlName="phoneNumber" type="text" fill="outline" class="form-control">
+      <ion-input formControlName="CONTACT_NUM" type="integer" fill="outline" class="form-control">
       </ion-input>
-      <div *ngIf="phoneNumber.invalid && phoneNumber.touched">
-        <small [class.d-none]="phoneNumber.valid || phoneNumber.untouched" class="text-danger">Enter Your Phone Number</small>
+      <div *ngIf="CONTACT_NUM.invalid && CONTACT_NUM.touched">
+        <small [class.d-none]="CONTACT_NUM.valid || CONTACT_NUM.untouched" class="text-danger">Enter Your Phone Number</small>
       </div>
     </div>
 
     <div class="form-group">
-      <ion-label>Email: </ion-label>
-      <ion-input formControlName="email" type="email" fill="outline" class="form-control">
+      <ion-label>EMAIL: </ion-label>
+      <ion-input formControlName="EMAIL" type="email" fill="outline" class="form-control">
       </ion-input>
     </div>
 
     <div class="form-group">
-      <ion-label>Password: </ion-label>
-      <ion-input formControlName="password" type="password" fill="outline" class="form-control">
+      <ion-label>PASSWORD: </ion-label>
+      <ion-input formControlName="PASSWORD" type="password" fill="outline" class="form-control">
       </ion-input>
-      <div *ngIf="registrationForm.get('password')!.invalid && registrationForm.get('password')!.touched">
-        <small [class.d-none]="registrationForm.get('password').valid || registrationForm.get('password').untouched" class="text-danger">Create Password</small>
+      <div *ngIf="registrationForm.get('PASSWORD')!.invalid && registrationForm.get('PASSWORD')!.touched">
+        <small [class.d-none]="registrationForm.get('PASSWORD').valid || registrationForm.get('PASSWORD').untouched" class="text-danger">Create PASSWORD</small>
       </div>
     </div>
 
     <div class="form-group">
-      <ion-label>Confirm Password: </ion-label>
-      <ion-input [class.is-invalid]="registrationForm.errors?.['misMatch']!" formControlName="confirmPassword" type="password" fill="outline" class="form-control">
+      <ion-label>Confirm PASSWORD: </ion-label>
+      <ion-input [class.is-invalid]="registrationForm.errors?.['misMatch']!" formControlName="confirmPASSWORD" type="PASSWORD" fill="outline" class="form-control">
       </ion-input>
-      <small class="text-danger" *ngIf="registrationForm.errors?.['misMatch']!"> Password do not Match</small>
+      <small class="text-danger" *ngIf="registrationForm.errors?.['misMatch']!"> PASSWORD do not Match</small>
 </div>
       <ion-button class="btn btn-primary" type="submit">Signup</ion-button>
     

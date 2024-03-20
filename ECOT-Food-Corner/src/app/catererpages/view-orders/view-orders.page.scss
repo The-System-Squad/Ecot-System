@@ -1,0 +1,48 @@
+ion-header{
+
+    ion-icon{
+        font-size: 30px;
+        position:relative;
+        margin-left: 10px;
+
+}
+#notifications-badge-msg{
+    background-color: rgb(67,7,233);
+    position: absolute;
+    top: 5px;
+    right: 95px;
+    color: #fff;
+    z-index: 111;
+
+}
+#notifications-badge{
+    background-color: rgb(67,7,233);
+    position: absolute;
+    top: 5px;
+    right: 50px;
+    color: #fff;
+    z-index: 111;
+}
+img{
+    width: 35px;
+    height:35px;
+    border-radius: 50%;
+    margin-right: 10px;
+
+}
+}
+ion-segment{
+            margin-top: 10px;
+            border: 1px solid #66c5eb;
+            
+
+            ion-segment-button{
+                --background-checked: #66c5eb;
+                --color-checked: #fff;
+                --indicator-color :#66c5eb;
+                font-size:18px;
+                --color: #66c5eb;
+
+            }
+
+        }

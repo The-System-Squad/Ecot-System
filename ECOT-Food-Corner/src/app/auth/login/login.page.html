@@ -11,19 +11,19 @@
         <p>Please Login to Your Account</p>
         <ion-item>
           <ion-label position="floating">Email Address</ion-label>
-          <ion-input type="email" formControlName="email"  placeholder="Email" name="email" ></ion-input>
+          <ion-input type="email" formControlName="EMAIL"  placeholder="Email" name="EMAIL" ></ion-input>
           <ion-icon class="ion-align-self-center" slot="end" name="mail"></ion-icon>
         </ion-item>
 
         <ion-item>
           <ion-label position="floating">Password</ion-label>
-          <ion-input [type]="type ? 'password' : 'text'" formControlName="password" placeholder="Password" name="password" ></ion-input>
+          <ion-input [type]="type ? 'password' : 'text'" formControlName="PASSWORD" placeholder="Password" name="PASSWORD" ></ion-input>
           <ion-icon class="ion-align-self-center" name="eye-outline" slot="end"  (click)="changeType()"
           [name]="type ? 'eye' : 'eye-off'"></ion-icon>
         </ion-item>
  
         <ion-item>
-          <select class = "form-select" id="floatingSelect" aria-label="role" name="role" >
+          <select class = "form-select" id="floatingSelect" aria-label="role" name="role" formControlName="ROLES" >
             <option *ngFor="let r of roles" [value] = "r"> {{r}} </option>
           </select>
 

@@ -17,6 +17,14 @@ const routes: Routes = [
     loadChildren: () => import('./auth/login/login.module').then( m => m.LoginPageModule)
   },
   {
+    path: 'add-menu',
+    loadChildren: () => import('./catererpages/add-menu/add-menu.module').then( m => m.AddMenuPageModule )
+  },
+  {
+    path: 'view-dishes',
+    loadChildren: () => import('./catererpages/view-dishes/view-dishes.module').then( m => m.ViewDishesPageModule )
+  },
+  {
     path: 'registration',
     loadChildren: () => import('./auth/registration/registration.module').then( m => m.RegistrationPageModule)
   },
@@ -24,10 +32,7 @@ const routes: Routes = [
     path: 'forget',
     loadChildren: () => import('./pages/forget/forget.module').then( m => m.ForgetPageModule)
   },
-  {
-    path: 'home',
-    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
-  },
+
   {
     path: 'catererreg',
     loadChildren: () => import('./auth/catererreg/catererreg.module').then( m => m.CatererregPageModule)
@@ -39,6 +44,10 @@ const routes: Routes = [
   {
     path: 'ordermenu',
     loadChildren: () => import('./pages/popup/ordermenu/ordermenu.module').then( m => m.OrdermenuPageModule)
+  },
+  {
+    path: 'home',
+    loadChildren: () => import('./catererpages/home/home.module').then( m => m.HomePageModule)
   },
   {
     path: 'payment',

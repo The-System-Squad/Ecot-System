@@ -35,6 +35,7 @@
             "scripts": []
           },
           "configurations": {
+            "optimization": false,
             "production": {
               "budgets": [
                 {
@@ -44,8 +45,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "150kb",
-                  "maximumError": "150kb"
+                  "maximumWarning": "5mb",
+                  "maximumError": "8mb"
                 }
               ],
               "fileReplacements": [

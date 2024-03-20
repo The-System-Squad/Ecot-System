@@ -18,11 +18,13 @@ import { environment } from 'src/environments/environment';
 import { provideAuth } from '@angular/fire/auth';
 import { getAuth } from 'firebase/auth';
 import { HotToastModule} from '@ngneat/hot-toast'
+import {ToastrModule} from 'ngx-toastr';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 @NgModule({
   declarations: [AppComponent, PersonComponent,PersonMenuComponent,AddItemsComponent,CouponComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule,FormsModule, ReactiveFormsModule, provideFirebaseApp(()=> initializeApp(environment.firebase)),provideAuth(()=>getAuth()),HotToastModule.forRoot()],
+  imports: [BrowserModule, IonicModule.forRoot(), ToastrModule.forRoot(), BrowserAnimationsModule, AppRoutingModule, HttpClientModule,FormsModule, ReactiveFormsModule, provideFirebaseApp(()=> initializeApp(environment.firebase)),provideAuth(()=>getAuth()),HotToastModule.forRoot()],
   providers: [ { provide: LOCALE_ID, useValue: "en-US" },{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy}, AppServiceService, FormControl, Validators],
   bootstrap: [AppComponent],
 })

@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { HomePageRoutingModule } from './home-routing.module';
+import { ViewDishesPageRoutingModule } from './view-dishes-routing.module';
 
-import { HomePage } from './home.page';
+import { ViewDishesPage } from './view-dishes.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule
+    ViewDishesPageRoutingModule
   ],
-  declarations: [HomePage]
+  declarations: [ViewDishesPage]
 })
-export class HomePageModule {}
+export class ViewDishesPageModule {}
