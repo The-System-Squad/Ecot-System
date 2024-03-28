@@ -1,0 +1,41 @@
+<ion-content [fullscreen]="true">
+  <div class="container" >
+      
+      <ion-card>
+        <h1 class="heading">Rate {{caterer?.firstName}}  {{caterer?.lastName}}</h1>
+        <ion-img src="{{caterer?.pictureUrl}}" style="height: 200px;"></ion-img>
+      </ion-card>
+  
+      <div *ngIf="showError" class="erro-warning">
+          <p>{{errorMessage}}</p>
+      </div>
+      <form  [formGroup]="ratingForm" autocomplete="off" novalidate (ngSubmit)="createRating(ratingForm.value)" >
+        <ion-card>
+        <ion-item lines="none" class="ion-item">
+          <h6>Tell others what you think?</h6>
+          <fieldset  class="input-item"> 
+            <ion-input type="text" id="reviewBody" formControlName="reviewBody" class="form-control"></ion-input>
+          </fieldset>
+        </ion-item>
+        <ion-item lines="none" class="ion-item bottom-item">
+          
+          <h6>Give your rating out of 5</h6>
+          <fieldset  class="input-item"> 
+            <ion-input type="number" min="1"  max="5"  pattern="[1-5]" id="starsCount" formControlName="starsCount" class="form-control"></ion-input>
+          </fieldset>
+        </ion-item>
+      </ion-card>
+        <div style="display: flex; justify-content: space-between;">
+          <ion-button class="login-button" expand="block" type="submit" [disabled]="!ratingForm.valid">
+            Save your rating
+          </ion-button>
+        
+          <ion-button class="login-button" expand="block" type="submit" (click)="onBack()">
+            cancel
+          </ion-button>
+        </div>
+      </form>
+    </div>
+</ion-content>
+
+

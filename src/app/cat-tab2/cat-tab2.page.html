@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>{{caterer?.firstName}}</ion-title>
+    <ion-button class="btn" slot="end"(click)="addItem(caterer.id)">Add
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="services">
+    <div class="lower-box">  
+      <div  class="innerService">
+        <div class="upperBox1" *ngFor="let item of caterer?.products">
+          <div class="image">
+            <img src="{{item.pictureUrl}}"/>
+          </div>
+          <div class = "title">
+            <h3>{{item.name}}</h3>
+          </div>
+           
+          <div class="menu" >
+            <h3> <ion-icon class="delete-box" name="trash" (click)="Delete(item.id)"></ion-icon> </h3>
+          </div>
+
+          <div class="amount">
+            <h3>E{{item.price}}</h3>
+          </div>
+
+          <div class="edit">
+            <a>
+            <ion-button class="btn" (click)="UpdateItem(item.id)">Edit
+            </ion-button>
+          </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+   </div>
+</ion-content>

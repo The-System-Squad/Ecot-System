@@ -1,0 +1,81 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>My Orders</ion-title>
+  </ion-toolbar>
+  <ion-button id="open-modal" expand="block" class="fixed-bottom">Delivered Orders</ion-button>
+</ion-header>
+
+
+<ion-modal #modal trigger="open-modal" [canDismiss]="canDismiss">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Delivered Orders</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="modal.dismiss()">Close</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content >
+      <div *ngFor="let item of orders">
+        <ion-card>
+      <ion-item class="custom-item" (click)="redirect(item.id)">
+        <ion-grid>
+          <ion-row>
+            <!-- Left column for item list -->
+            <ion-col size="10.5">
+              <p class="item-list">{{item.orderDate | date: 'yyyy-MM-dd HH:mm:ss' }}</p>
+              <p class="item-list">Customer.:{{item.firstName}} {{item.lastName}}</p>
+            </ion-col>
+      
+            <!-- Right column for icon, centered vertically -->
+            <ion-col size="1.5" class="icon-column">
+              <ion-button color="danger" (click)="redirect(item.id)">
+                <ion-icon name="eye" class="custom-icon"></ion-icon>
+              </ion-button> 
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </ion-card>
+    </div>
+      
+    </ion-content>
+  </ng-template>
+</ion-modal>
+
+<ion-content [fullscreen]="true">
+
+  <ng-template #elseBlock>
+    <div class="cart-content">
+      <div class="empty-cart">
+        <ion-icon name="cart"></ion-icon>
+        <p>No order available...!</p>
+      </div>
+    </div>
+  </ng-template>
+  <div *ngIf="ordersPending?.length > 0 ;else elseBlock">
+    <div *ngFor="let item of ordersPending">
+      <ion-card>
+    <ion-item class="custom-item" (click)="redirectToDetails(item.id)">
+      <ion-grid>
+        <ion-row>
+          <!-- Left column for item list -->
+          <ion-col size="10.5">
+            <p class="item-list">{{item.orderDate | date: 'yyyy-MM-dd HH:mm:ss' }}</p>
+            <p class="item-list">Customer.:{{item.firstName}} {{item.lastName}}</p>
+          </ion-col>
+    
+          <!-- Right column for icon, centered vertically -->
+          <ion-col size="1.5" class="icon-column">
+            <ion-button color="danger" (click)="redirectToDetails(item.id)">
+              <ion-icon name="eye" class="custom-icon"></ion-icon>
+            </ion-button> 
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  </ion-card>
+  </div>
+  </div>
+</ion-content>

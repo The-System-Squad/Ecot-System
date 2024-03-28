@@ -1,0 +1,93 @@
+<ion-content>
+  <ng-template #elseBlock>
+    <div class="cart-content">
+      <div class="empty-cart">
+        <ion-icon name="cart"></ion-icon>
+        <p>Your cart is empty</p>
+      </div>
+      <ion-button expand="full" fill="clear" class="shop-button"[routerLink]="['']">
+        Start shopping
+      </ion-button>
+    </div>
+
+  </ng-template>
+  <div *ngIf="(basket$ | async) as basket ;else elseBlock">
+    <h3 class="cart-header">Your Cart</h3>
+<div >
+  <ion-card *ngFor="let item of basket.items">
+    <ion-list >
+      <ion-item >
+        <ion-grid>
+          <ion-row>
+            <ion-col size="10">
+              <h4>Cart</h4>
+            </ion-col>
+            <ion-col size="2" class="ion-text-end">
+              <h4 (click)="removeBasketItem(item)" class="remove-basket">
+                <ion-icon slot="icon-only"  name="close" color="primary"></ion-icon>
+              </h4>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+  
+      <ion-item>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="7">
+              <h4>{{ item.productName }}</h4>
+            </ion-col>
+            <ion-col size="5" class="ion-text-end">
+              <h4><sup>E</sup>{{ item.price }}</h4>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+  
+      <ion-item  lines="none">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="7" style="display: flex; align-items: center;">
+              <h4 class="AddRemoveQuantity" (click)="decrementItem(item)">
+                <ion-icon slot="icon-only" name="remove" color="primary"></ion-icon>
+              </h4>
+              <h4 class="Quantity">
+                {{item.quantity}}
+              </h4>
+              <h4 class="AddRemoveQuantity" (click)="incrementItem(item)">
+                <ion-icon slot="icon-only" name="add" color="primary"></ion-icon>
+              </h4>
+            </ion-col>
+            <ion-col size="5" class="ion-text-end">
+              <h4><sup>E</sup>{{ item.price }}</h4>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </ion-list>
+
+    <ion-card *ngIf="(basketTotals$ | async) as totals" no-lines>
+      <ion-item >
+        <ion-grid>
+          <ion-row>
+            <ion-col size="7">
+              <h4>Total</h4>
+            </ion-col>
+            <ion-col size="5" class="ion-text-end">
+              <h4><sup>E</sup>{{totals.subTotal |number:'1.2'}}</h4>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+  </ion-card>
+    <ion-button expand="full" fill="clear" class="custom-button bottom-btn" 
+    (click)="redirectToDetails(item.catererId)">
+      Checkout
+      <ion-icon slot="end" name="arrow-forward"></ion-icon>
+    </ion-button>
+  </ion-card>
+</div>
+
+
+</div>
+</ion-content>

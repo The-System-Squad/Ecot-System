@@ -1,0 +1,42 @@
+<ion-content>
+
+  <div class="image-container">
+    <ion-img [src]="product?.pictureUrl"></ion-img>
+    <div class="close-btn-fixed">
+      <a (click)="dismissModal()">
+        <div class="close-btn">x</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="product-details">
+    <h1 class="ion-no-margin">{{product?.name}}</h1>
+    <p class="ion-no-margin"><sup>E</sup> {{product?.price | number: '1.2'}}</p>
+  </div>
+
+  <div class="about">
+    <h1>About</h1>
+    <p>{{product?.description}}</p>
+  </div>
+
+
+<div *ngIf="(basket$ | async) as basket; else elseBlock">
+  <ion-button *ngIf="isProductInBasket(basket, product?.id); else elseBlock"  class="bottom-center-button" expand="full" fill="clear" (click)="checkoutRout()" >
+    <ion-grid>
+      <ion-row>
+        <ion-col><span class="add-Cart">Continue Checkout</span></ion-col>
+        <ion-col><span class="add-Cart-item"><sup>E</sup>{{product?.price | number: '1.2'}}</span></ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-button>
+</div>
+<ng-template #elseBlock>
+  <ion-button  class="bottom-center-button" expand="full" fill="clear"  (click)="addItemToBasket()">
+    <ion-grid>
+      <ion-row>
+        <ion-col><span class="add-Cart">Add to cart</span></ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-button>
+</ng-template>  
+</ion-content>

@@ -1,0 +1,45 @@
+<ion-content>
+  <div class="upper">
+    <div class="icon">
+      <ion-icon name="restaurant"></ion-icon>
+    </div>
+    <p id="login">ECOT Food Corner</p>
+  </div>
+  <div class="middle">
+    <div class="box">
+      <div *ngIf="showError" class="alert alert-danger" role="alert">
+        {{errorMessage}}
+    </div>
+      <form [formGroup]="loginForm" autocomplete="off" novalidate (ngSubmit)="loginUser(loginForm.value)" >
+        <p>Please Login to Your Account</p>
+        <ion-item>
+          <ion-label position="floating">Email Address</ion-label>
+          <ion-input type="text" id="username" formControlName="username" class="form-control" ></ion-input>
+          <ion-icon class="ion-align-self-center" slot="end" name="mail"></ion-icon>
+          <div class="col-md-5">
+            <em *ngIf="validateControl('username') && hasError('username', 'required')">Username is required</em>
+        </div>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input [type]="type ? 'password' : 'text'" id="password" formControlName="password" class="form-control"></ion-input>
+          <ion-icon class="ion-align-self-center" name="eye-outline" slot="end"  (click)="changeType()"
+          [name]="type ? 'eye' : 'eye-off'"></ion-icon>
+      <div class="col-md-5">
+        <em *ngIf="validateControl('password') && hasError('password', 'required')">Password is required</em>
+    </div>
+        </ion-item>
+
+        <p id="forgetPassword" > Forget Password</p>
+        <div class="btn">
+
+          <ion-button class="btn btn-primary" type="submit" [disabled]="!loginForm.valid">Login</ion-button>
+        </div>
+      </form>  
+    </div>
+  </div>
+  <div class="navigator">
+    <p>Don't have an Account ?<span [routerLink]="['/auth/register']">Register Now</span> </p>
+  </div>
+</ion-content>

@@ -1,0 +1,86 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab1"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+
+
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{order?.firstName}} {{order?.lastName}}</ion-card-title>
+      <h2> <ion-icon name="location"></ion-icon>{{order?.hostelName}} , {{order?.roomNumber}}</h2>
+    </ion-card-header>
+    <ion-card-content>
+      <div class="contact-details">
+        <div>
+          <ion-label>Phone: </ion-label>
+          <ion-text> {{ order?.phone }}</ion-text>
+        </div>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-button expand="full" fill="clear" class="custom-button" (click)="RecievedOrderUpdate(order?.id)"
+  *ngIf="order?.received === false">
+   Make delivery
+  </ion-button>
+
+  <ion-button expand="full" fill="clear" class="custom-button"
+   *ngIf="order?.received === true">
+    Delivered
+   </ion-button>
+
+  <h1 class="heading">Order list</h1>
+    <ion-card *ngFor="let order of order?.orderItems">
+      <ion-list>
+        <ion-item >
+          <ion-grid>
+            <ion-row>
+              <ion-col size="10">
+                <h4>Quantity</h4>
+              </ion-col>
+              <ion-col size="2" class="ion-text-end">
+                <h4>
+                  {{order.quantity}}
+                </h4>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+        <ion-item >
+          <ion-label>
+            <h2 class="text-item">{{ order.productName }}</h2>
+            <h3 class="text-price">Price: E{{ order.price }}</h3>
+          </ion-label>
+          <ion-thumbnail slot="end">
+            <ion-img src="{{order.pictureUrl}}"></ion-img>
+          </ion-thumbnail>
+        </ion-item>
+      </ion-list>
+    </ion-card>
+
+    <h1 class="heading">Order summary</h1>
+    <ion-card >
+      <ion-list>
+        <ion-item>
+          <ion-grid>
+            <ion-row>
+              <ion-col size="7">
+                <h4>Subtotal</h4>
+              </ion-col>
+              <ion-col size="5" class="ion-text-end">
+                <h4>{{order?.subtotal|number:'1.2'}}</h4>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+      </ion-list>
+    </ion-card>
+
+</ion-content>
+

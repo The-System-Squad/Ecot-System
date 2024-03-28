@@ -1,0 +1,77 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Profile
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="user-details">
+    <h1 class="user-name">{{userFirstName}} {{userLastName}}<br><br></h1>
+    <p class="user-email">{{email}}</p>
+  </div>
+
+  <ion-card>
+    <ion-card-content>
+      <!-- Ionic List -->
+      <ion-list>
+        <ion-item (click)="openAddress()">
+          <ion-icon name="location-outline" class="setting-icon"></ion-icon>
+          <ion-label>
+            Address
+          </ion-label>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label>
+            ECOT 
+          </ion-label>
+          <ion-button slot="end">
+            Mbabane
+          </ion-button>
+        </ion-item>
+        <!-- Add more items as needed -->
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- // -->
+  <ion-card>
+
+
+    <ion-card-content>
+      <!-- Ionic List -->
+      <ion-list>
+        <ion-item (click)="openOrders(userFirstName)">
+          <ion-icon name="hourglass" class="setting-icon"></ion-icon>
+          <ion-label>
+            Pending Orders
+          </ion-label>
+        </ion-item>
+        <ion-item (click)="openHistory(userFirstName)">
+          <ion-icon name="book" class="setting-icon"></ion-icon>
+          <ion-label>
+            Order History
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="information-circle" class="setting-icon"></ion-icon>
+          <ion-label>
+            About
+          </ion-label>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-icon name="power" class="setting-icon"></ion-icon>
+          <ion-label (click)="logout()">
+            Sign out
+          </ion-label>
+        </ion-item>
+        <!-- Add more items as needed -->
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  <div class="version">
+    <p>ECOT FOOD CORNER</p>
+  </div>
+</ion-content>

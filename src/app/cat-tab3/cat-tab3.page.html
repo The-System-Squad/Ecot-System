@@ -1,0 +1,53 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Profile Settings</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-card>
+    <ion-card-content>
+      <!-- Ionic List -->
+      <ion-list>
+        <ion-item lines="none">
+          <h1 class="user-name">{{caterer?.firstName}} {{caterer?.firstName}}<br><br></h1>
+        </ion-item>
+        <ion-item lines="none">
+          <img [src]="caterer?.pictureUrl" alt="{{caterer?.firstName}}" />
+        </ion-item>
+        <ion-item lines="none">
+          <ion-button (click)="AddPic(caterer?.id)">Update profile</ion-button>
+        </ion-item>
+
+        <!-- Add more items as needed -->
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card-content>
+    <!-- Ionic List -->
+    <ion-list>
+      <ion-item>
+        <ion-icon name="information-circle" class="setting-icon"></ion-icon>
+        <ion-label>
+          Help
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="information-circle" class="setting-icon"></ion-icon>
+        <ion-label>
+          About
+        </ion-label>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-icon name="power" class="setting-icon"></ion-icon>
+        <ion-label (click)="logout()">
+          Sign out
+        </ion-label>
+      </ion-item>
+      <!-- Add more items as needed -->
+    </ion-list>
+  </ion-card-content>
+
+</ion-content>

@@ -1,0 +1,20 @@
+.search-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+  }
+  
+  input {
+    flex: 1;
+    padding: 10px;
+    color: black;
+    border: none;
+    border-radius: 15px;
+    background-color: #a6a6a6;
+  }
+  .heading {
+    font-weight: 400;
+    font-size: 1.5rem;
+      margin: 16px; /* Adjust spacing as needed */
+    }

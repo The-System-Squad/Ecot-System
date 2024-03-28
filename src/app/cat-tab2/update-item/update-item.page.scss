@@ -1,0 +1,31 @@
+.erro-warning{
+    margin: 30px;
+    p{
+        color: red;
+    }
+  }
+  .input-item{
+    padding-left: 20px;
+    width: 100%;
+    border-radius: 12px;
+    border: 2px solid #e2e2e2;
+    height: 70px;
+    ion-input{
+        margin-top: -12px;
+    }
+  }
+  .ion-item{
+    margin-top: 20px;
+  }
+  
+  .save-button{
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 50px;
+    --border-radius: 12px;
+    margin-top: 60px;
+    --box-shadow: none;
+  }
+  .img-container{
+    margin: 2rem;
+  }

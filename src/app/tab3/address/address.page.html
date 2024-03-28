@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" (click)="dismissModal()">
+      <ion-icon slot="icon-only"  name="close"></ion-icon>
+    </ion-buttons>
+    <ion-title>
+      User address
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+ 
+    <div *ngIf="showError" class="erro-warning">
+      <span [innerHTML]="errorMessage"></span>
+  </div>
+  <form [formGroup]="addressForm" autocomplete="off" novalidate (ngSubmit)="registerAddress(addressForm.value)">
+    <ion-card>
+      <ion-item lines="none" class="ion-item">
+        <fieldset  class="input-item">
+          <legend>First Name</legend> 
+          <ion-input type="text" id="firstName" formControlName="firstName" class="form-control"></ion-input>
+        </fieldset>
+      </ion-item>
+      <ion-item lines="none" class="ion-item">
+        <fieldset  class="input-item">
+          <legend>Last Name</legend> 
+          <ion-input type="text" id="lastName" formControlName="lastName" class="form-control"></ion-input>
+        </fieldset>
+      </ion-item>
+      <ion-item lines="none" class="ion-item">
+        <fieldset  class="input-item">
+          <legend>hostel Name</legend> 
+          <ion-input type="text" id="hostelName" formControlName="hostelName" class="form-control"></ion-input>
+        </fieldset>
+      </ion-item>
+      <ion-item lines="none" class="ion-item">
+        <fieldset  class="input-item">
+          <legend>roomNumber</legend> 
+          <ion-input type="text" id="roomNumber" formControlName="roomNumber" class="form-control"></ion-input>
+        </fieldset>
+      </ion-item>
+      <ion-item lines="none" class="ion-item bottom-item">
+        <fieldset  class="input-item">
+          <legend>Phone</legend> 
+          <ion-input type="text" id="phone" formControlName="phone" class="form-control"></ion-input>
+        </fieldset>
+      </ion-item>
+    </ion-card>
+
+
+    <ion-button type="submit" expand="full" fill="clear" class="custom-button" [disabled]="!addressForm.valid">
+       Save address
+    </ion-button>
+  </form> 
+
+
+</ion-content>
+

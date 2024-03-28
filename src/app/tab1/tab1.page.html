@@ -1,0 +1,58 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Available Caterers
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="search-container" >
+    <ion-searchbar color="light" placeholder="Search caterer" id="search-modal" expand="block" readonly="true"></ion-searchbar>
+  </div>
+
+  <ion-modal #modal trigger="search-modal" class="search-modal">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <!-- Left side: Search bar -->   
+          <div class="search-container">
+            <ion-searchbar [(ngModel)]="searchTerm" (ionChange)="filterCaterers()"></ion-searchbar>
+          </div>   
+
+          <ion-buttons slot="end">
+            <ion-button (click)="closeModal()">Done</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+
+
+        <h1 class="heading">All Caterers</h1>
+       
+        <ion-card *ngFor="let element of dataSource.data">
+          <ion-img [src]="element.pictureUrl" [alt]="element.lastName"  (click)="redirectToDetails(element.id)"></ion-img>
+          <ion-card-content>
+            <ion-label class="ion-text-wrap">
+              <ion-row>
+                <ion-col size="8">
+                  <ion-text>
+                    <strong>{{element.firstName}} {{element.lastName}}</strong>
+                  </ion-text>
+                </ion-col>
+                <ion-col size="4" class="rating">
+                  <app-star-rating [rate]="element.rating" [max]="5" [readOnly]="true"></app-star-rating>
+                </ion-col>
+              </ion-row>
+            </ion-label>
+          </ion-card-content>
+        </ion-card>
+
+        
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+  <div *ngFor="let item of caterer">
+    <app-caterers [caterer]="item"></app-caterers>
+  </div>
+</ion-content>

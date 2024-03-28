@@ -1,0 +1,47 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Add Course </ion-title>
+    <ion-button slot="end" (click)="closeModal()">Close</ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container" >
+      
+    <div *ngIf="showError" class="erro-warning">
+        <p>{{errorMessage}}</p>
+    </div>
+
+    <ion-card >
+      <div class="img-container">
+        <h3 class="insert">Insert picture</h3>
+        <app-upload (onUploadFinished)="uploadFinished($event)"></app-upload>
+      </div>
+      
+    </ion-card>
+    <form [formGroup]="dataForm" autocomplete="off" novalidate (ngSubmit)="createData(dataForm.value)">
+     
+     <ion-card>
+      <ion-item lines="none" class="ion-item">
+        <fieldset  class="input-item">
+          <legend>Name</legend> 
+          <ion-input type="text" id="name" formControlName="name" class="form-control" ></ion-input>
+        </fieldset>
+      </ion-item>
+      <ion-item lines="none" class="ion-item">
+        <fieldset class="input-item">
+          <legend>Des</legend> 
+          <ion-input type="text" id="description" formControlName="description" class="form-control"></ion-input>
+        </fieldset>
+      </ion-item>
+      <ion-item lines="none" class="ion-item">
+        <fieldset class="input-item">
+          <legend>Price</legend> 
+          <ion-input type="number" id="price" formControlName="price" class="form-control"></ion-input>
+        </fieldset>
+      </ion-item>
+      <ion-button class="save-button" expand="block" type="submit" [disabled]="!dataForm.valid">Save</ion-button>
+    </ion-card>
+    </form>
+  </div>
+</ion-content>

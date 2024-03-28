@@ -1,0 +1,103 @@
+
+<ion-header *ngIf="(basket$ | async) as basket">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab2"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Checkout
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" >
+  <ng-template #elseBlock>
+    <div class="cart-content">
+      <div class="empty-cart">
+        <ion-icon name="cart"></ion-icon>
+        <p>Your cart is empty</p>
+      </div>
+      <ion-button expand="full" fill="clear" class="shop-button"[routerLink]="['']">
+        Start shopping
+      </ion-button>
+    </div>
+
+  </ng-template>
+
+  <div *ngIf="(basket$ | async) as basket ;else elseBlock">
+        <h1 class="heading">Delivery details</h1>
+        <div *ngIf="showError" class="erro-warning">
+            <span [innerHTML]="errorMessage"></span>
+        </div>
+      <form [formGroup]="addressForm" autocomplete="off" novalidate (ngSubmit)="registerAddress(addressForm.value)">
+        <ion-card>
+          <ion-item lines="none" class="ion-item">
+            <fieldset  class="input-item">
+              <legend>First Name</legend> 
+              <ion-input type="text" id="firstName" formControlName="firstName" class="form-control"></ion-input>
+            </fieldset>
+          </ion-item>
+          <ion-item lines="none" class="ion-item">
+            <fieldset  class="input-item">
+              <legend>Last Name</legend> 
+              <ion-input type="text" id="lastName" formControlName="lastName" class="form-control"></ion-input>
+            </fieldset>
+          </ion-item>
+          <ion-item lines="none" class="ion-item">
+            <fieldset  class="input-item">
+              <legend>hostel Name</legend> 
+              <ion-input type="text" id="hostelName" formControlName="hostelName" class="form-control"></ion-input>
+            </fieldset>
+          </ion-item>
+          <ion-item lines="none" class="ion-item">
+            <fieldset  class="input-item">
+              <legend>roomNumber</legend> 
+              <ion-input type="text" id="roomNumber" formControlName="roomNumber" class="form-control"></ion-input>
+            </fieldset>
+          </ion-item>
+          <ion-item lines="none" class="ion-item bottom-item">
+            <fieldset  class="input-item">
+              <legend>Phone</legend> 
+              <ion-input type="text" id="phone" formControlName="phone" class="form-control"></ion-input>
+            </fieldset>
+          </ion-item>
+        </ion-card>
+
+
+        <ion-button type="submit" expand="full" fill="clear" class="custom-button" [disabled]="!addressForm.valid">
+           Save address
+        </ion-button>
+      </form> 
+
+
+<h1 class="heading">Order summary</h1>
+      <ion-card *ngIf="(basketTotals$ | async) as totals">
+        <ion-list>
+          <ion-item>
+            <ion-grid>
+              <ion-row>
+                <ion-col size="7">
+                  <h4>Subtotal</h4>
+                </ion-col>
+                <ion-col size="5" class="ion-text-end">
+                  <h4><sup>E</sup>{{totals.subTotal |number:'1.2'}}</h4>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-item>
+        </ion-list>
+      </ion-card>
+
+<!-- Display Cash section when Cash is selected -->
+<ion-button  expand="full" fill="clear" class="checkout-button" (click)="submitOrder()">
+  Place order
+</ion-button>
+
+    </div>
+
+</ion-content>
+
+
+
+
+
